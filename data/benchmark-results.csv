@@ -1,0 +1,14 @@
+model,provider,valid_attempts,total_attempts,result,prompt_tokens,completion_tokens,cost_usd_per_success,latency_seconds,usd_per_1000,cny_per_1000_at_7_2,openrouter_30d_tokens,recommendation
+nvidia/nemotron-nano-12b-v2-vl:free,Nvidia,0,2,failed,,,0,,0,0,not_in_top50,1/5
+amazon/nova-lite-v1,Amazon Bedrock,1,1,correct,2645,35,0.000167100,11.989,0.167100,1.203120,not_in_top50,4/5
+qwen/qwen3-vl-8b-instruct,Alibaba,1,1,correct,1070,43,0.000144755,3.753,0.144755,1.042236,not_in_top50,4.5/5
+qwen/qwen3-vl-32b-instruct,Alibaba,1,1,correct,1070,36,0.000126256,4.952,0.126256,0.909043,not_in_top50,5/5
+mistralai/mistral-small-2603,Mistral,1,1,wrong_bucket_plastic,1457,35,0.000239550,4.921,0.239550,1.724760,not_in_top50,1.5/5
+meta-llama/llama-4-maverick,Novita,1,1,correct,2512,35,0.000707990,3.757,0.707990,5.097528,not_in_top50,3.5/5
+google/gemini-3.5-flash-lite,Google AI Studio,1,1,correct,1125,33,0.000420000,6.954,0.420000,3.024000,572685371266,4.5/5
+google/gemini-3.7-flash,Google,1,2,correct_on_retry,1124,79,0.000569625,6.101,0.569625,4.101300,not_in_top50,4.5/5
+z-ai/glm-5v-turbo,Z.AI,1,2,correct_on_retry,1339,159,0.002242800,24.977,2.242800,16.148160,not_in_top50,3.5/5
+openai/gpt-5.4-nano,OpenAI,1,1,correct,1270,29,0.000290250,3.375,0.290250,2.089800,488555501492,5/5
+openai/gpt-5.4-mini,OpenAI,1,1,correct,1270,29,0.001083000,4.117,1.083000,7.797600,463006006851,4.5/5
+anthropic/claude-haiku-4.5,Amazon Bedrock,1,1,correct,1417,53,0.001682000,7.714,1.682000,12.110400,not_in_top50,3.5/5
+anthropic/claude-sonnet-4.6,Anthropic,1,1,correct,1417,27,0.004656000,4.204,4.656000,33.523200,not_in_top50,3/5

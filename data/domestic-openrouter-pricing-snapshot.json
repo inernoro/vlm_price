@@ -1,0 +1,326 @@
+{
+  "snapshot_date": "2026-08-14",
+  "source": "https://openrouter.ai/api/v1/models",
+  "warning": "OpenRouter pricing and providers are comparison data, not proof of a domestic China data path.",
+  "models": [
+    {
+      "id": "bytedance-seed/seed-2-1-turbo",
+      "name": "ByteDance Seed: Seed 2.1 Turbo",
+      "pricing": {
+        "prompt": "0.0000005",
+        "completion": "0.0000025"
+      },
+      "context_length": 262144,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 262144,
+        "max_completion_tokens": 262144,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "qwen/qwen3.7-flash",
+      "name": "Qwen: Qwen3.7 Flash",
+      "pricing": {
+        "prompt": "0.00000003",
+        "completion": "0.00000013",
+        "input_cache_read": "0.000000006",
+        "input_cache_write": "0.000000038",
+        "overrides": [
+          {
+            "min_prompt_tokens": 32000,
+            "prompt": "0.0000001",
+            "completion": "0.0000004",
+            "input_cache_read": "0.00000002",
+            "input_cache_write": "0.000000125"
+          },
+          {
+            "min_prompt_tokens": 256000,
+            "prompt": "0.0000002",
+            "completion": "0.0000008",
+            "input_cache_read": "0.00000004",
+            "input_cache_write": "0.00000025"
+          }
+        ]
+      },
+      "context_length": 1000000,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Qwen",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 65536,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "moonshotai/kimi-k3",
+      "name": "MoonshotAI: Kimi K3",
+      "pricing": {
+        "prompt": "0.000003",
+        "completion": "0.000015",
+        "input_cache_read": "0.0000003"
+      },
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": null,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "minimax/minimax-m3",
+      "name": "MiniMax: MiniMax M3",
+      "pricing": {
+        "prompt": "0.0000003",
+        "completion": "0.0000012",
+        "input_cache_read": "0.00000006"
+      },
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 524288,
+        "max_completion_tokens": 512000,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "stepfun/step-3.7-flash",
+      "name": "StepFun: Step 3.7 Flash",
+      "pricing": {
+        "prompt": "0.0000002",
+        "completion": "0.00000115",
+        "input_cache_read": "0.00000004"
+      },
+      "context_length": 262144,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 256000,
+        "max_completion_tokens": 256000,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "xiaomi/mimo-v2.5",
+      "name": "Xiaomi: MiMo-V2.5",
+      "pricing": {
+        "prompt": "0.00000014",
+        "completion": "0.00000028",
+        "input_cache_read": "0.0000000028"
+      },
+      "context_length": 1050000,
+      "architecture": {
+        "modality": "text+image+audio+video->text",
+        "input_modalities": [
+          "text",
+          "audio",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 131072,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "z-ai/glm-5v-turbo",
+      "name": "Z.ai: GLM 5V Turbo",
+      "pricing": {
+        "prompt": "0.0000012",
+        "completion": "0.000004",
+        "input_cache_read": "0.00000024"
+      },
+      "context_length": 202752,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "image",
+          "text",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 202752,
+        "max_completion_tokens": 131072,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "z-ai/glm-4.6v",
+      "name": "Z.ai: GLM 4.6V",
+      "pricing": {
+        "prompt": "0.0000003",
+        "completion": "0.0000009",
+        "input_cache_read": "0.000000055"
+      },
+      "context_length": 131072,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "image",
+          "text",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 131072,
+        "max_completion_tokens": 32768,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "qwen/qwen3-vl-32b-instruct",
+      "name": "Qwen: Qwen3 VL 32B Instruct",
+      "pricing": {
+        "prompt": "0.000000104",
+        "completion": "0.000000416"
+      },
+      "context_length": 131072,
+      "architecture": {
+        "modality": "text+image->text",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Qwen",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 131072,
+        "max_completion_tokens": 32768,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "qwen/qwen3-vl-8b-instruct",
+      "name": "Qwen: Qwen3 VL 8B Instruct",
+      "pricing": {
+        "prompt": "0.000000117",
+        "completion": "0.000000455"
+      },
+      "context_length": 262144,
+      "architecture": {
+        "modality": "text+image->text",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Qwen3",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 131072,
+        "max_completion_tokens": 32768,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "qwen/qwen3-vl-235b-a22b-instruct",
+      "name": "Qwen: Qwen3 VL 235B A22B Instruct",
+      "pricing": {
+        "prompt": "0.00000026",
+        "completion": "0.00000104"
+      },
+      "context_length": 262144,
+      "architecture": {
+        "modality": "text+image->text",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Qwen3",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "context_length": 131072,
+        "max_completion_tokens": 32768,
+        "is_moderated": false
+      }
+    }
+  ]
+}

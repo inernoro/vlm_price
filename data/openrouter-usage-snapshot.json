@@ -1,0 +1,286 @@
+{
+  "source": "OpenRouter (openrouter.ai/rankings)",
+  "meta": {
+    "as_of": "2026-08-14T08:03:05.065Z",
+    "version": "v1",
+    "start_date": "2026-07-15",
+    "end_date": "2026-08-13"
+  },
+  "selected": [
+    {
+      "date": "2026-07-15",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "27017869754"
+    },
+    {
+      "date": "2026-07-15",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "24019556674"
+    },
+    {
+      "date": "2026-07-16",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "25197678772"
+    },
+    {
+      "date": "2026-07-16",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "23906246234"
+    },
+    {
+      "date": "2026-07-17",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "26475116337"
+    },
+    {
+      "date": "2026-07-17",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "22868322750"
+    },
+    {
+      "date": "2026-07-18",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "22253574642"
+    },
+    {
+      "date": "2026-07-18",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "20181460745"
+    },
+    {
+      "date": "2026-07-19",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "20162807129"
+    },
+    {
+      "date": "2026-07-19",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "18071267798"
+    },
+    {
+      "date": "2026-07-20",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "26038159192"
+    },
+    {
+      "date": "2026-07-20",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "23491281236"
+    },
+    {
+      "date": "2026-07-21",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "30809406636"
+    },
+    {
+      "date": "2026-07-21",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "26622796520"
+    },
+    {
+      "date": "2026-07-22",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "27188694875"
+    },
+    {
+      "date": "2026-07-22",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "26672924151"
+    },
+    {
+      "date": "2026-07-23",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "37704635687"
+    },
+    {
+      "date": "2026-07-23",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "31100975497"
+    },
+    {
+      "date": "2026-07-24",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "34133182104"
+    },
+    {
+      "date": "2026-07-24",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "25494608972"
+    },
+    {
+      "date": "2026-07-25",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "52995417023"
+    },
+    {
+      "date": "2026-07-25",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "44623638496"
+    },
+    {
+      "date": "2026-07-25",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "21968844396"
+    },
+    {
+      "date": "2026-07-26",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "109955300443"
+    },
+    {
+      "date": "2026-07-26",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "21582571245"
+    },
+    {
+      "date": "2026-07-27",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "42043630265"
+    },
+    {
+      "date": "2026-07-27",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "28576705334"
+    },
+    {
+      "date": "2026-07-27",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "24465642209"
+    },
+    {
+      "date": "2026-07-28",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "28769152763"
+    },
+    {
+      "date": "2026-07-28",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "27945682095"
+    },
+    {
+      "date": "2026-07-29",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "28279023560"
+    },
+    {
+      "date": "2026-07-29",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "27644334932"
+    },
+    {
+      "date": "2026-07-30",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "27011562012"
+    },
+    {
+      "date": "2026-07-30",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "23193554831"
+    },
+    {
+      "date": "2026-07-31",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "23620519723"
+    },
+    {
+      "date": "2026-07-31",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "21606305975"
+    },
+    {
+      "date": "2026-08-01",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "18578020694"
+    },
+    {
+      "date": "2026-08-01",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "18255459740"
+    },
+    {
+      "date": "2026-08-01",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "16659447679"
+    },
+    {
+      "date": "2026-08-02",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "19046228280"
+    },
+    {
+      "date": "2026-08-02",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "16141311346"
+    },
+    {
+      "date": "2026-08-03",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "24970535843"
+    },
+    {
+      "date": "2026-08-03",
+      "model_permaslug": "openai/gpt-5.4-nano-20260317",
+      "total_tokens": "22223413643"
+    },
+    {
+      "date": "2026-08-04",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "27169399011"
+    },
+    {
+      "date": "2026-08-04",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "22231005880"
+    },
+    {
+      "date": "2026-08-05",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "24118048302"
+    },
+    {
+      "date": "2026-08-05",
+      "model_permaslug": "openai/gpt-5.4-mini-20260317",
+      "total_tokens": "23458288104"
+    },
+    {
+      "date": "2026-08-06",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "30454138679"
+    },
+    {
+      "date": "2026-08-07",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "26010136968"
+    },
+    {
+      "date": "2026-08-08",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "18728117475"
+    },
+    {
+      "date": "2026-08-09",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "18548018340"
+    },
+    {
+      "date": "2026-08-10",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "30488886754"
+    },
+    {
+      "date": "2026-08-11",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "27127171402"
+    },
+    {
+      "date": "2026-08-12",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "40584237749"
+    },
+    {
+      "date": "2026-08-13",
+      "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
+      "total_tokens": "25762562713"
+    }
+  ]
+}
