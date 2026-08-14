@@ -1,17 +1,17 @@
-model,provider,valid_attempts,total_attempts,result,prompt_tokens,completion_tokens,reasoning_tokens,cost_usd_per_success,latency_seconds,usd_per_1000,cny_per_1000_at_7_2,openrouter_30d_tokens,recommendation
-qwen/qwen3.7-flash,Alibaba,1,2,correct_on_retry,1074,595,541,0.000109570,19.838,0.109570,0.788904,202327322679,4.5/5
-qwen/qwen3-vl-32b-instruct,Alibaba,1,1,correct,1070,36,0,0.000126256,4.952,0.126256,0.909043,not_in_top50,5/5
-amazon/nova-lite-v1,Amazon Bedrock,1,1,correct,2645,35,0,0.000167100,11.989,0.167100,1.203120,not_in_top50,4/5
-mistralai/mistral-small-2603,Mistral,1,1,wrong_bucket_plastic,1457,35,0,0.000239550,4.921,0.239550,1.724760,not_in_top50,1.5/5
-openai/gpt-5.4-nano,OpenAI,1,1,correct,1270,29,0,0.000290250,3.375,0.290250,2.089800,488555501492,5/5
-minimax/minimax-m3,Venice,1,1,correct,735,97,64,0.000308580,4.810,0.308580,2.221776,not_in_top50,4/5
-stepfun/step-3.7-flash,DeepInfra,1,1,correct,565,203,195,0.000346450,5.701,0.346450,2.494440,5986851262982,4/5
-google/gemini-3.5-flash-lite,Google AI Studio,1,1,correct,1125,33,0,0.000420000,6.954,0.420000,3.024000,572685371266,4.5/5
-z-ai/glm-4.6v,Z.AI,1,1,correct,1414,117,79,0.000528500,8.529,0.528500,3.805200,not_in_top50,4/5
-meta-llama/llama-4-maverick,Novita,1,1,correct,2512,35,0,0.000707990,3.757,0.707990,5.097528,not_in_top50,3.5/5
-openai/gpt-5.4-mini,OpenAI,1,1,correct,1270,29,0,0.001083000,4.117,1.083000,7.797600,463006006851,4.5/5
-bytedance-seed/seed-2-1-turbo,Seed,1,1,correct,1384,171,145,0.001119500,10.105,1.119500,8.060400,not_in_top50,4/5
-anthropic/claude-haiku-4.5,Amazon Bedrock,1,1,correct,1417,53,0,0.001682000,7.714,1.682000,12.110400,not_in_top50,3.5/5
-z-ai/glm-5v-turbo,Z.AI,1,2,correct_on_retry,1339,159,123,0.002242800,24.977,2.242800,16.148160,not_in_top50,3.5/5
-anthropic/claude-sonnet-4.6,Anthropic,1,1,correct,1417,27,0,0.004656000,4.204,4.656000,33.523200,not_in_top50,3/5
-moonshotai/kimi-k3,DigitalOcean,1,1,correct,1506,146,119,0.006372600,13.247,6.372600,45.882720,5286636084656,3/5
+model,provider,valid_attempts,total_attempts,result,prompt_tokens,completion_tokens,reasoning_tokens,usd_per_1000,cny_per_1000_at_7_2,latency_seconds,openrouter_30d_tokens,recommendation,raw_cost_usd_per_request
+qwen/qwen3.7-flash,Alibaba,1,2,correct_on_retry,1074,595,541,0.109570,0.788904,19.838,202327322679,4.5/5,0.000109570
+qwen/qwen3-vl-32b-instruct,Alibaba,1,1,correct,1070,36,0,0.126256,0.909043,4.952,not_in_top50,5/5,0.000126256
+amazon/nova-lite-v1,Amazon Bedrock,1,1,correct,2645,35,0,0.167100,1.203120,11.989,not_in_top50,4/5,0.000167100
+mistralai/mistral-small-2603,Mistral,1,1,wrong_bucket_plastic,1457,35,0,0.239550,1.724760,4.921,not_in_top50,1.5/5,0.000239550
+openai/gpt-5.4-nano,OpenAI,1,1,correct,1270,29,0,0.290250,2.089800,3.375,488555501492,5/5,0.000290250
+minimax/minimax-m3,Venice,1,1,correct,735,97,64,0.308580,2.221776,4.810,not_in_top50,4/5,0.000308580
+stepfun/step-3.7-flash,DeepInfra,1,1,correct,565,203,195,0.346450,2.494440,5.701,5986851262982,4/5,0.000346450
+google/gemini-3.5-flash-lite,Google AI Studio,1,1,correct,1125,33,0,0.420000,3.024000,6.954,572685371266,4.5/5,0.000420000
+z-ai/glm-4.6v,Z.AI,1,1,correct,1414,117,79,0.528500,3.805200,8.529,not_in_top50,4/5,0.000528500
+meta-llama/llama-4-maverick,Novita,1,1,correct,2512,35,0,0.707990,5.097528,3.757,not_in_top50,3.5/5,0.000707990
+openai/gpt-5.4-mini,OpenAI,1,1,correct,1270,29,0,1.083000,7.797600,4.117,463006006851,4.5/5,0.001083000
+bytedance-seed/seed-2-1-turbo,Seed,1,1,correct,1384,171,145,1.119500,8.060400,10.105,not_in_top50,4/5,0.001119500
+anthropic/claude-haiku-4.5,Amazon Bedrock,1,1,correct,1417,53,0,1.682000,12.110400,7.714,not_in_top50,3.5/5,0.001682000
+z-ai/glm-5v-turbo,Z.AI,1,2,correct_on_retry,1339,159,123,2.242800,16.148160,24.977,not_in_top50,3.5/5,0.002242800
+anthropic/claude-sonnet-4.6,Anthropic,1,1,correct,1417,27,0,4.656000,33.523200,4.204,not_in_top50,3/5,0.004656000
+moonshotai/kimi-k3,DigitalOcean,1,1,correct,1506,146,119,6.372600,45.882720,13.247,5286636084656,3/5,0.006372600

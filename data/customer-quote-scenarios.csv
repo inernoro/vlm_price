@@ -1,0 +1,5 @@
+basis,scope,cny_raw_per_1000,max_attempts,payment_factor,price_route_buffer,target_gross_margin,cny_safe_cost_per_1000,cny_theoretical_price_per_1000,cny_recommended_quote_per_1000
+observed_average,15_correct_successful_requests,9.677086,1,1.000,1.00,0.00,9.677086,9.677086,not_for_sale
+observed_maximum,kimi_k3_successful_request,45.882720,1,1.000,1.00,0.00,45.882720,45.882720,not_for_sale
+average_method,15_correct_models_observed_input_plus_500_text_tokens_and_600_output_tokens_average,25.994659,2,1.055,1.20,0.30,65.818477,94.026396,100
+maximum_method,observed_input_plus_500_text_tokens_and_600_output_tokens_maximum,108.129600,2,1.055,1.20,0.30,273.784147,391.120210,400
