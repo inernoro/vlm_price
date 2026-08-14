@@ -9,6 +9,11 @@
   "selected": [
     {
       "date": "2026-07-15",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "104939271812"
+    },
+    {
+      "date": "2026-07-15",
       "model_permaslug": "openai/gpt-5.4-mini-20260317",
       "total_tokens": "27017869754"
     },
@@ -16,6 +21,11 @@
       "date": "2026-07-15",
       "model_permaslug": "openai/gpt-5.4-nano-20260317",
       "total_tokens": "24019556674"
+    },
+    {
+      "date": "2026-07-16",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "106035149284"
     },
     {
       "date": "2026-07-16",
@@ -29,6 +39,16 @@
     },
     {
       "date": "2026-07-17",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "112061266216"
+    },
+    {
+      "date": "2026-07-17",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "72024635791"
+    },
+    {
+      "date": "2026-07-17",
       "model_permaslug": "openai/gpt-5.4-nano-20260317",
       "total_tokens": "26475116337"
     },
@@ -36,6 +56,16 @@
       "date": "2026-07-17",
       "model_permaslug": "openai/gpt-5.4-mini-20260317",
       "total_tokens": "22868322750"
+    },
+    {
+      "date": "2026-07-18",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "141608127697"
+    },
+    {
+      "date": "2026-07-18",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "101493723499"
     },
     {
       "date": "2026-07-18",
@@ -49,6 +79,16 @@
     },
     {
       "date": "2026-07-19",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "163013201607"
+    },
+    {
+      "date": "2026-07-19",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "105574831402"
+    },
+    {
+      "date": "2026-07-19",
       "model_permaslug": "openai/gpt-5.4-nano-20260317",
       "total_tokens": "20162807129"
     },
@@ -56,6 +96,16 @@
       "date": "2026-07-19",
       "model_permaslug": "openai/gpt-5.4-mini-20260317",
       "total_tokens": "18071267798"
+    },
+    {
+      "date": "2026-07-20",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "161539288948"
+    },
+    {
+      "date": "2026-07-20",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "122888549323"
     },
     {
       "date": "2026-07-20",
@@ -69,6 +119,16 @@
     },
     {
       "date": "2026-07-21",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "307580931326"
+    },
+    {
+      "date": "2026-07-21",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "190411920508"
+    },
+    {
+      "date": "2026-07-21",
       "model_permaslug": "openai/gpt-5.4-mini-20260317",
       "total_tokens": "30809406636"
     },
@@ -76,6 +136,16 @@
       "date": "2026-07-21",
       "model_permaslug": "openai/gpt-5.4-nano-20260317",
       "total_tokens": "26622796520"
+    },
+    {
+      "date": "2026-07-22",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "456677096225"
+    },
+    {
+      "date": "2026-07-22",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "184927504679"
     },
     {
       "date": "2026-07-22",
@@ -89,6 +159,16 @@
     },
     {
       "date": "2026-07-23",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "389840332596"
+    },
+    {
+      "date": "2026-07-23",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "186456684969"
+    },
+    {
+      "date": "2026-07-23",
       "model_permaslug": "openai/gpt-5.4-mini-20260317",
       "total_tokens": "37704635687"
     },
@@ -99,6 +179,16 @@
     },
     {
       "date": "2026-07-24",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "243774901473"
+    },
+    {
+      "date": "2026-07-24",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "185553831433"
+    },
+    {
+      "date": "2026-07-24",
       "model_permaslug": "openai/gpt-5.4-mini-20260317",
       "total_tokens": "34133182104"
     },
@@ -106,6 +196,16 @@
       "date": "2026-07-24",
       "model_permaslug": "openai/gpt-5.4-nano-20260317",
       "total_tokens": "25494608972"
+    },
+    {
+      "date": "2026-07-25",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "204804309244"
+    },
+    {
+      "date": "2026-07-25",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "157644924081"
     },
     {
       "date": "2026-07-25",
@@ -124,6 +224,16 @@
     },
     {
       "date": "2026-07-26",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "193014928432"
+    },
+    {
+      "date": "2026-07-26",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "164779296882"
+    },
+    {
+      "date": "2026-07-26",
       "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
       "total_tokens": "109955300443"
     },
@@ -131,6 +241,16 @@
       "date": "2026-07-26",
       "model_permaslug": "openai/gpt-5.4-nano-20260317",
       "total_tokens": "21582571245"
+    },
+    {
+      "date": "2026-07-27",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "227222837235"
+    },
+    {
+      "date": "2026-07-27",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "184594169734"
     },
     {
       "date": "2026-07-27",
@@ -149,6 +269,16 @@
     },
     {
       "date": "2026-07-28",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "266482278634"
+    },
+    {
+      "date": "2026-07-28",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "219310827929"
+    },
+    {
+      "date": "2026-07-28",
       "model_permaslug": "openai/gpt-5.4-mini-20260317",
       "total_tokens": "28769152763"
     },
@@ -156,6 +286,16 @@
       "date": "2026-07-28",
       "model_permaslug": "openai/gpt-5.4-nano-20260317",
       "total_tokens": "27945682095"
+    },
+    {
+      "date": "2026-07-29",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "324874967863"
+    },
+    {
+      "date": "2026-07-29",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "241853719170"
     },
     {
       "date": "2026-07-29",
@@ -168,14 +308,44 @@
       "total_tokens": "27644334932"
     },
     {
+      "date": "2026-07-29",
+      "model_permaslug": "qwen/qwen3.7-flash-20260727",
+      "total_tokens": "25505314364"
+    },
+    {
+      "date": "2026-07-30",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "282473777078"
+    },
+    {
+      "date": "2026-07-30",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "191158721459"
+    },
+    {
       "date": "2026-07-30",
       "model_permaslug": "openai/gpt-5.4-nano-20260317",
       "total_tokens": "27011562012"
     },
     {
       "date": "2026-07-30",
+      "model_permaslug": "qwen/qwen3.7-flash-20260727",
+      "total_tokens": "26254246431"
+    },
+    {
+      "date": "2026-07-30",
       "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
       "total_tokens": "23193554831"
+    },
+    {
+      "date": "2026-07-31",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "217494749833"
+    },
+    {
+      "date": "2026-07-31",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "202112542879"
     },
     {
       "date": "2026-07-31",
@@ -186,6 +356,16 @@
       "date": "2026-07-31",
       "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
       "total_tokens": "21606305975"
+    },
+    {
+      "date": "2026-08-01",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "194010709319"
+    },
+    {
+      "date": "2026-08-01",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "177929114876"
     },
     {
       "date": "2026-08-01",
@@ -203,6 +383,21 @@
       "total_tokens": "16659447679"
     },
     {
+      "date": "2026-08-01",
+      "model_permaslug": "qwen/qwen3.7-flash-20260727",
+      "total_tokens": "16181765968"
+    },
+    {
+      "date": "2026-08-02",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "175413168947"
+    },
+    {
+      "date": "2026-08-02",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "174724791518"
+    },
+    {
       "date": "2026-08-02",
       "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
       "total_tokens": "19046228280"
@@ -211,6 +406,21 @@
       "date": "2026-08-02",
       "model_permaslug": "openai/gpt-5.4-nano-20260317",
       "total_tokens": "16141311346"
+    },
+    {
+      "date": "2026-08-02",
+      "model_permaslug": "qwen/qwen3.7-flash-20260727",
+      "total_tokens": "15881464003"
+    },
+    {
+      "date": "2026-08-03",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "195693794217"
+    },
+    {
+      "date": "2026-08-03",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "151465387293"
     },
     {
       "date": "2026-08-03",
@@ -224,13 +434,38 @@
     },
     {
       "date": "2026-08-04",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "206031713983"
+    },
+    {
+      "date": "2026-08-04",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "188156210411"
+    },
+    {
+      "date": "2026-08-04",
       "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
       "total_tokens": "27169399011"
     },
     {
       "date": "2026-08-04",
+      "model_permaslug": "qwen/qwen3.7-flash-20260727",
+      "total_tokens": "26596207044"
+    },
+    {
+      "date": "2026-08-04",
       "model_permaslug": "openai/gpt-5.4-mini-20260317",
       "total_tokens": "22231005880"
+    },
+    {
+      "date": "2026-08-05",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "219552377413"
+    },
+    {
+      "date": "2026-08-05",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "198991386479"
     },
     {
       "date": "2026-08-05",
@@ -244,8 +479,28 @@
     },
     {
       "date": "2026-08-06",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "227444677362"
+    },
+    {
+      "date": "2026-08-06",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "183760329848"
+    },
+    {
+      "date": "2026-08-06",
       "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
       "total_tokens": "30454138679"
+    },
+    {
+      "date": "2026-08-07",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "194977360210"
+    },
+    {
+      "date": "2026-08-07",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "177898765824"
     },
     {
       "date": "2026-08-07",
@@ -253,9 +508,39 @@
       "total_tokens": "26010136968"
     },
     {
+      "date": "2026-08-07",
+      "model_permaslug": "qwen/qwen3.7-flash-20260727",
+      "total_tokens": "19074665107"
+    },
+    {
+      "date": "2026-08-08",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "164102567452"
+    },
+    {
+      "date": "2026-08-08",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "162698945497"
+    },
+    {
       "date": "2026-08-08",
       "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
       "total_tokens": "18728117475"
+    },
+    {
+      "date": "2026-08-08",
+      "model_permaslug": "qwen/qwen3.7-flash-20260727",
+      "total_tokens": "16582240145"
+    },
+    {
+      "date": "2026-08-09",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "187686655988"
+    },
+    {
+      "date": "2026-08-09",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "158346687762"
     },
     {
       "date": "2026-08-09",
@@ -263,9 +548,39 @@
       "total_tokens": "18548018340"
     },
     {
+      "date": "2026-08-09",
+      "model_permaslug": "qwen/qwen3.7-flash-20260727",
+      "total_tokens": "15799103486"
+    },
+    {
+      "date": "2026-08-10",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "221841516768"
+    },
+    {
+      "date": "2026-08-10",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "171499623423"
+    },
+    {
       "date": "2026-08-10",
       "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
       "total_tokens": "30488886754"
+    },
+    {
+      "date": "2026-08-10",
+      "model_permaslug": "qwen/qwen3.7-flash-20260727",
+      "total_tokens": "19814104243"
+    },
+    {
+      "date": "2026-08-11",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "231576201367"
+    },
+    {
+      "date": "2026-08-11",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "170094087852"
     },
     {
       "date": "2026-08-11",
@@ -273,9 +588,34 @@
       "total_tokens": "27127171402"
     },
     {
+      "date": "2026-08-11",
+      "model_permaslug": "qwen/qwen3.7-flash-20260727",
+      "total_tokens": "20638211888"
+    },
+    {
+      "date": "2026-08-12",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "210709205648"
+    },
+    {
+      "date": "2026-08-12",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "130992558780"
+    },
+    {
       "date": "2026-08-12",
       "model_permaslug": "google/gemini-3.5-flash-lite-20260721",
       "total_tokens": "40584237749"
+    },
+    {
+      "date": "2026-08-13",
+      "model_permaslug": "moonshotai/kimi-k3-20260715",
+      "total_tokens": "240856560141"
+    },
+    {
+      "date": "2026-08-13",
+      "model_permaslug": "stepfun/step-3.7-flash-20260528",
+      "total_tokens": "142809650019"
     },
     {
       "date": "2026-08-13",
