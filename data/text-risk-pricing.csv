@@ -1,0 +1,11 @@
+vendor,product,pricing_status,original_price,normalized_cny_per_1000_short_texts,public_low_cny,public_mean_cny,public_high_cny,billing_unit,verified_at,source_url
+OpenAI,omni-moderation-latest,public,"Free",0.00,0.00,0.00,0.00,request,2026-08-20,https://developers.openai.com/api/docs/models/omni-moderation-latest
+Baidu AI Cloud,Content Moderation Text,public,"CNY 9-15/10k prepaid; CNY 15/10k PAYG",0.90,0.90,1.20,1.50,successful_request,2026-08-20,https://cloud.baidu.com/doc/ICR/s/8ktjhkmjc
+Tencent Cloud,Text Moderation System,public,"CNY 10-22/10k prepaid; CNY 25/10k overage",1.00,1.00,1.78,2.50,text_item,2026-08-20,https://cloud.tencent.com/document/product/1124/37118
+AWS,Bedrock Guardrails Content Filters,public,"USD 0.15/1000 text units",1.08,1.08,1.08,1.08,1000_char_text_unit,2026-08-20,https://aws.amazon.com/bedrock/pricing/
+Alibaba Cloud,AI Guardrails Text Compliance API,public,"CNY 15/10k requests",1.50,1.50,1.50,1.50,request_per_check,2026-08-20,https://help.aliyun.com/zh/document_detail/2872706.html
+Microsoft Azure,AI Content Safety Standard Text,public_region_specific,"USD 0.375/1000 records (East US)",2.70,2.70,2.70,2.70,1000_char_record,2026-08-20,https://prices.azure.com/api/retail/prices?$filter=contains(productName%2C%20%27Content%20Safety%27)
+Google Cloud,Natural Language Text Moderation,public_tiered,"USD 5/10k units first paid tier",3.60,0.90,2.10,3.60,100_char_unit,2026-08-20,https://cloud.google.com/products/natural-language/pricing
+Volcengine,Content Risk Identification Text,quote_required,"Annual package; contact sales",,,,,annual_package,2026-08-20,https://www.volcengine.com/docs/6504/118938
+Huawei Cloud,Content Moderation Text,dynamic_console,"PAYG tier or package; calculator/account region",,,,,successful_request,2026-08-20,https://support.huaweicloud.com/productdesc-moderation/moderation_01_0023.html
+NetEase Yidun,Text Detection,quote_required,"Contact sales",,,,,contract,2026-08-20,https://dun.163.com/product/text-detection
