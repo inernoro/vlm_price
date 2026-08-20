@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "category": "text_content_risk_detection",
+  "verified_at": "2026-08-20",
+  "currency_assumption": { "usd_to_cny": 7.2 },
+  "comparison_workload": {
+    "requests": 1000,
+    "max_unicode_characters_per_request": 100,
+    "one_text_per_request": true
+  },
+  "summary": {
+    "public_numeric_vendor_count": 7,
+    "quote_or_dynamic_vendor_count": 3,
+    "public_base_low_cny": 0,
+    "public_base_nonzero_low_cny": 0.9,
+    "public_base_mean_cny": 1.54,
+    "public_base_high_cny": 3.6
+  },
+  "offers": [
+    {
+      "vendor": "OpenAI",
+      "product": "omni-moderation-latest",
+      "pricing_status": "public",
+      "original_price": "free",
+      "normalized_cny_per_1000_short_texts": 0,
+      "source_url": "https://developers.openai.com/api/docs/models/omni-moderation-latest",
+      "evidence": "Official model page states moderation models are free."
+    },
+    {
+      "vendor": "Baidu AI Cloud",
+      "product": "Content Moderation Text",
+      "pricing_status": "public",
+      "original_price": "CNY 9-15 per 10k prepaid; CNY 15 per 10k PAYG",
+      "normalized_cny_per_1000_short_texts": 0.9,
+      "public_low_cny": 0.9,
+      "public_mean_cny": 1.2,
+      "public_high_cny": 1.5,
+      "source_url": "https://cloud.baidu.com/doc/ICR/s/8ktjhkmjc"
+    },
+    {
+      "vendor": "Tencent Cloud",
+      "product": "Text Moderation System",
+      "pricing_status": "public",
+      "original_price": "CNY 10-22 per 10k prepaid; CNY 25 per 10k overage",
+      "normalized_cny_per_1000_short_texts": 1,
+      "public_low_cny": 1,
+      "public_mean_cny": 1.78,
+      "public_high_cny": 2.5,
+      "max_characters_per_request": 10000,
+      "source_url": "https://cloud.tencent.com/document/product/1124/37118"
+    },
+    {
+      "vendor": "AWS",
+      "product": "Bedrock Guardrails Content Filters",
+      "pricing_status": "public",
+      "original_price": "USD 0.15 per 1000 text units",
+      "billing_unit": "up to 1000 characters",
+      "normalized_cny_per_1000_short_texts": 1.08,
+      "source_url": "https://aws.amazon.com/bedrock/pricing/",
+      "evidence": "Each configured safeguard is billed separately."
+    },
+    {
+      "vendor": "Alibaba Cloud",
+      "product": "AI Guardrails Text Compliance API",
+      "pricing_status": "public",
+      "original_price": "CNY 15 per 10k checks",
+      "normalized_cny_per_1000_short_texts": 1.5,
+      "source_url": "https://help.aliyun.com/zh/document_detail/2872706.html",
+      "evidence": "Compliance, sensitive data and prompt attack checks can be charged separately."
+    },
+    {
+      "vendor": "Microsoft Azure",
+      "product": "AI Content Safety Standard Text",
+      "pricing_status": "public_region_specific",
+      "region": "eastus",
+      "original_price": "USD 0.375 per 1000 text records",
+      "billing_unit": "up to 1000 Unicode characters",
+      "normalized_cny_per_1000_short_texts": 2.7,
+      "source_url": "https://prices.azure.com/api/retail/prices?$filter=contains(productName,%20%27Content%20Safety%27)",
+      "definition_url": "https://azure.microsoft.com/pricing/details/content-safety/"
+    },
+    {
+      "vendor": "Google Cloud",
+      "product": "Natural Language Text Moderation",
+      "pricing_status": "public_tiered",
+      "original_price": "USD 5 per 10k 100-character units in first paid tier",
+      "billing_unit": "each request rounded up to 100 Unicode characters",
+      "normalized_cny_per_1000_short_texts": 3.6,
+      "public_low_cny": 0.9,
+      "public_mean_cny": 2.1,
+      "public_high_cny": 3.6,
+      "source_url": "https://cloud.google.com/products/natural-language/pricing"
+    },
+    {
+      "vendor": "Volcengine",
+      "product": "Content Risk Identification Text",
+      "pricing_status": "quote_required",
+      "original_price": "annual package; contact sales before order",
+      "normalized_cny_per_1000_short_texts": null,
+      "source_url": "https://www.volcengine.com/docs/6504/118938"
+    },
+    {
+      "vendor": "Huawei Cloud",
+      "product": "Content Moderation Text",
+      "pricing_status": "dynamic_console",
+      "original_price": "PAYG tiers or discount package; price calculator/account region",
+      "normalized_cny_per_1000_short_texts": null,
+      "source_url": "https://support.huaweicloud.com/productdesc-moderation/moderation_01_0023.html"
+    },
+    {
+      "vendor": "NetEase Yidun",
+      "product": "Text Detection",
+      "pricing_status": "quote_required",
+      "original_price": "contact sales",
+      "normalized_cny_per_1000_short_texts": null,
+      "source_url": "https://dun.163.com/product/text-detection"
+    }
+  ]
+}

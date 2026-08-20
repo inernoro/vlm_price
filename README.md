@@ -1,14 +1,33 @@
-# VLM Price Board
+# AI Price Board
 
-> 1024×1024 单图识别的公开报价、实验室实付区间与复核证据。
+> 面向业务决策的 AI 服务公开价格仓库：统一单位、保留原始计费规则、记录核验时间和证据。
 
 [![Price refresh](https://github.com/inernoro/vlm_price/actions/workflows/update-pricing.yml/badge.svg)](https://github.com/inernoro/vlm_price/actions/workflows/update-pricing.yml)
-![Unit](https://img.shields.io/badge/计价单位-1000张-2563eb)
+[![Catalog validation](https://github.com/inernoro/vlm_price/actions/workflows/validate-catalog.yml/badge.svg)](https://github.com/inernoro/vlm_price/actions/workflows/validate-catalog.yml)
+![Catalog](https://img.shields.io/badge/分类-VLM%20%7C%20文本风险识别-2563eb)
 ![Data](https://img.shields.io/badge/数据-可复核-15803d)
 
-本项目回答三个业务问题：**最低多少钱、正常会浮动到哪里、数字如何证明**。目录价自动更新；实验结果按测试日期固化，不把未测试模型写成“效果更好”。
+本项目回答三个业务问题：**最低多少钱、正常会浮动到哪里、数字如何证明**。公开价与实验实付分开；无稳定公开价格的服务标记为“询价”，不采用过期资料补数。
 
-## 管理摘要
+## 价格分类
+
+| 分类 | 统一比较单位 | 当前范围 | 状态 | 入口 |
+|---|---|---:|---|---|
+| VLM 单图识别 | 1000 张 1024×1024 单图 | 实验室 ¥0.79～¥45.88 | 目录价每日更新 | [完整报价](docs/01-完整报价表.md) |
+| 文本内容风险识别 | 1000 条、每条不超过 100 Unicode 字符 | 公开基础价 ¥0～¥3.60 | 2026-08-20 官方来源核验 | [厂商报价](docs/06-文本内容风险识别报价.md) |
+
+### 文本风险识别摘要
+
+| 指标 | 价格（人民币/1000 条） | 说明 |
+|---|---:|---|
+| 公开基础价下限 | **¥0.00** | OpenAI `omni-moderation-latest`；官方标注免费 |
+| 非零公开价下限 | **¥0.90** | 百度智能云最大公开资源包折算价 |
+| 公开基础价样本均值 | **¥1.54** | 7 个有可复算公开基础价的厂商；询价项与阶段性免费额度不参与 |
+| 公开基础价上限 | **¥3.60** | Google Cloud Text Moderation，付费第一档 |
+
+统一试算按 1000 条短文本、每条不超过 100 Unicode 字符、每条单独请求，美元按 `$1 = ¥7.20`。均值用于判断公开目录价量级，不代表效果排名或合同成交价；详细公式、套餐上下限和功能叠加项见[文本内容风险识别报价](docs/06-文本内容风险识别报价.md)。静态报价超过 45 天未复核时，仓库校验会失败并提示更新。
+
+## VLM 管理摘要
 
 | 结论 | 数值 | 口径 |
 |---|---:|---|
@@ -136,6 +155,10 @@ GitHub Actions 每日执行，也支持 `workflow_dispatch` 手动刷新。监�
 | [`data/benchmark-results.csv`](data/benchmark-results.csv) | 2026-08-14 实验结果 |
 | [`data/openrouter-model-pricing-snapshot.json`](data/openrouter-model-pricing-snapshot.json) | 实验日目录快照 |
 | [`data/openrouter-usage-snapshot.json`](data/openrouter-usage-snapshot.json) | 30 日 token 热度证据 |
+| [`docs/06-文本内容风险识别报价.md`](docs/06-文本内容风险识别报价.md) | 文本审核厂商价格、统一试算和采购边界 |
+| [`data/text-risk-pricing.json`](data/text-risk-pricing.json) | 文本风险识别机器可读价格快照 |
+| [`data/text-risk-pricing.csv`](data/text-risk-pricing.csv) | 文本风险识别业务表格 |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | 新分类、价格更新和证据要求 |
 
 ## 数据声明
 
