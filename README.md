@@ -4,10 +4,13 @@
 
 [![Price refresh](https://github.com/inernoro/vlm_price/actions/workflows/update-pricing.yml/badge.svg)](https://github.com/inernoro/vlm_price/actions/workflows/update-pricing.yml)
 [![Catalog validation](https://github.com/inernoro/vlm_price/actions/workflows/validate-catalog.yml/badge.svg)](https://github.com/inernoro/vlm_price/actions/workflows/validate-catalog.yml)
+[![GitHub Pages](https://img.shields.io/badge/在线报价看板-打开-2558e6)](https://inernoro.github.io/vlm_price/)
 ![Catalog](https://img.shields.io/badge/分类-VLM%20%7C%20文本风险识别-2563eb)
 ![Data](https://img.shields.io/badge/数据-可复核-15803d)
 
 本项目回答三个业务问题：**最低多少钱、正常会浮动到哪里、数字如何证明**。公开价与实验实付分开；无稳定公开价格的服务标记为“询价”，不采用过期资料补数。
+
+在线浏览：[AI Price Board 报价看板](https://inernoro.github.io/vlm_price/)；页面直接读取仓库中的 JSON 数据，与文档报价共用同一份来源。
 
 ## 价格分类
 

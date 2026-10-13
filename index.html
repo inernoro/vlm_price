@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="AI Price Board：VLM 图像识别与文本内容风险识别公开价格看板。" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>AI Price Board｜AI 服务报价一览</title>
+    <link rel="stylesheet" href="./assets/site.css" />
+    <script src="./assets/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="AI Price Board 首页">
+        <span class="brand-mark" aria-hidden="true">AP</span>
+        <span>
+          <strong>AI Price Board</strong>
+          <small>公开价格 · 统一口径 · 可复核</small>
+        </span>
+      </a>
+      <nav class="header-actions" aria-label="页面导航">
+        <a href="#vlm">VLM</a>
+        <a href="#text-risk">文本风控</a>
+        <a href="#method">核算口径</a>
+        <a class="button button-dark" href="https://github.com/inernoro/vlm_price" target="_blank" rel="noreferrer">查看仓库</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> 报价目录持续维护</p>
+          <h1>AI 服务价格，<br /><span>一页看清。</span></h1>
+          <p class="hero-lead">用统一业务工作量比较模型与审核服务。底价、均价、上限、实验状态和官方证据放在同一张看板里。</p>
+          <div class="hero-meta">
+            <span>统一单位：1000 次</span>
+            <span>固定汇率：$1 = ¥7.20</span>
+            <span id="verified-date">数据载入中</span>
+          </div>
+        </div>
+        <aside class="hero-note" aria-label="阅读说明">
+          <p class="note-index">READ THIS FIRST</p>
+          <h2>价格不是效果排名</h2>
+          <p>公开目录价用于快速判断成本量级。正式采购还需核对效果、长度、套餐期限、并发、失败重试和合同条件。</p>
+          <a href="#method">查看计算方式 <span aria-hidden="true">→</span></a>
+        </aside>
+      </section>
+
+      <section class="metrics" aria-label="关键价格摘要">
+        <article class="metric metric-primary">
+          <p>VLM 实验室区间</p>
+          <strong>¥0.79–45.88</strong>
+          <span>/ 1000 张 1024×1024 图片</span>
+        </article>
+        <article class="metric">
+          <p>VLM 正确结果均值</p>
+          <strong>¥9.68</strong>
+          <span>15 个正确模型样本</span>
+        </article>
+        <article class="metric metric-accent">
+          <p>文本风控公开区间</p>
+          <strong id="text-range">¥0–3.60</strong>
+          <span>/ 1000 条短文本</span>
+        </article>
+        <article class="metric">
+          <p>文本风控样本均值</p>
+          <strong id="text-mean">¥1.22</strong>
+          <span><b id="public-count">8</b> 家公开可复算 · <b id="quote-count">2</b> 家询价</span>
+        </article>
+      </section>
+
+      <section class="section-block" id="vlm" aria-labelledby="vlm-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-number">01 / VISION LANGUAGE MODELS</p>
+            <h2 id="vlm-title">VLM 单图识别报价</h2>
+            <p>目录预算与实验实付分开。默认工作量：1000 张 1024×1024 单图，每张 1500 输入 token、200 输出 token。</p>
+          </div>
+          <div class="section-stat">
+            <span>当前目录价差</span>
+            <strong id="vlm-ratio">176.1×</strong>
+          </div>
+        </div>
+
+        <div class="toolbar" role="search">
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="vlm-search" type="search" placeholder="搜索模型或厂商" autocomplete="off" />
+          </label>
+          <div class="segmented" aria-label="VLM 数据筛选">
+            <button class="is-active" type="button" data-vlm-filter="all">全部目录</button>
+            <button type="button" data-vlm-filter="tested">已实测</button>
+            <button type="button" data-vlm-filter="correct">识别正确</button>
+          </div>
+        </div>
+
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>模型 / 定位</th>
+                <th>输入 / 输出<br /><small>$/1M token</small></th>
+                <th>目录预算<br /><small>¥/1000 张</small></th>
+                <th>实验状态</th>
+                <th class="bar-heading">相对成本</th>
+              </tr>
+            </thead>
+            <tbody id="vlm-table-body">
+              <tr><td colspan="5" class="loading-row">正在读取当前目录价格…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footnote">目录最低价不等于业务成本最低；“待复测”模型不参与效果结论。实验状态来自统一测试图，目录价格来自公开模型 API。</p>
+      </section>
+
+      <section class="section-block section-ink" id="text-risk" aria-labelledby="text-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-number">02 / CONTENT SAFETY</p>
+            <h2 id="text-title">文本内容风险识别报价</h2>
+            <p>统一比较 1000 条、每条不超过 100 Unicode 字符、每条单独请求。公开档位的下限、均值和上限同时保留。</p>
+          </div>
+          <div class="section-stat section-stat-light">
+            <span>非零公开底价</span>
+            <strong id="text-floor">¥0.21</strong>
+          </div>
+        </div>
+
+        <div class="legend" aria-label="状态说明">
+          <span><i class="legend-dot is-public"></i> 公开价格</span>
+          <span><i class="legend-dot is-reference"></i> 官方参考价</span>
+          <span><i class="legend-dot is-quote"></i> 需询价</span>
+        </div>
+
+        <div class="vendor-grid" id="text-vendor-grid" aria-live="polite">
+          <p class="loading-card">正在读取厂商报价…</p>
+        </div>
+      </section>
+
+      <section class="method" id="method" aria-labelledby="method-title">
+        <div class="method-intro">
+          <p class="section-number">03 / METHOD</p>
+          <h2 id="method-title">每个数字都有复核路径</h2>
+          <p>把原始计费单位、统一工作量、固定汇率和实验账单分别保存。无法稳定复核的报价明确标记为询价，不用旧网页补数。</p>
+        </div>
+        <div class="formula-grid">
+          <article>
+            <span>目录预算</span>
+            <code>(输入 token × 输入价 + 输出 token × 输出价) × 1000</code>
+          </article>
+          <article>
+            <span>实验实付</span>
+            <code>API 响应 usage.cost × 1000</code>
+          </article>
+          <article>
+            <span>文本统一价</span>
+            <code>原始价格 ÷ 原始计费量 × 1000</code>
+          </article>
+        </div>
+        <div class="evidence-row">
+          <div><strong>官方来源</strong><span>价格页、文档或零售价 API</span></div>
+          <div><strong>定期失效</strong><span>静态报价超过 45 天校验失败</span></div>
+          <div><strong>原始证据</strong><span>JSON、CSV、测试图与完整回答</span></div>
+          <a class="button button-light" href="./docs/02-交叉验算.md">查看交叉验算</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>AI Price Board</strong> · 价格、效果与热度分别记录。</p>
+      <p>数据仅用于成本量级判断，不构成供应商承诺或采购报价。</p>
+    </footer>
+  </body>
+</html>
