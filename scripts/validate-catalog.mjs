@@ -1,0 +1,78 @@
+import fs from 'node:fs';
+
+const file = new URL('../data/text-risk-pricing.json', import.meta.url);
+const exchangeFile = new URL('../data/exchange-rate.json', import.meta.url);
+const livePricingFile = new URL('../data/live-pricing.json', import.meta.url);
+const catalog = JSON.parse(fs.readFileSync(file, 'utf8'));
+const exchange = JSON.parse(fs.readFileSync(exchangeFile, 'utf8'));
+const livePricing = JSON.parse(fs.readFileSync(livePricingFile, 'utf8'));
+
+const errors = [];
+if (!catalog.verified_at) errors.push('missing verified_at');
+if (!Array.isArray(catalog.offers) || catalog.offers.length === 0) errors.push('offers must be non-empty');
+if (!(exchange.rate > 0) || !exchange.rate_date || !exchange.source_url) errors.push('exchange rate requires rate, date and source');
+if (catalog.currency_assumption.usd_to_cny !== exchange.rate) errors.push('text catalog exchange rate differs from exchange-rate.json');
+if (livePricing.workload.usd_cny !== exchange.rate) errors.push('VLM catalog exchange rate differs from exchange-rate.json');
+if (livePricing.workload.exchange_rate_date !== exchange.rate_date) errors.push('VLM exchange rate date differs from exchange-rate.json');
+
+const verifiedAt = new Date(`${catalog.verified_at}T00:00:00Z`);
+const ageDays = (Date.now() - verifiedAt.getTime()) / 86_400_000;
+if (!Number.isFinite(ageDays)) errors.push('verified_at must be an ISO date');
+if (ageDays > 45) errors.push(`catalog is stale: ${Math.floor(ageDays)} days since verification`);
+if (ageDays < -1) errors.push('verified_at cannot be in the future');
+
+const allowed = new Set([
+  'public',
+  'public_reference',
+  'public_tiered',
+  'public_region_specific',
+  'dynamic_console',
+  'quote_required'
+]);
+
+for (const [index, offer] of (catalog.offers || []).entries()) {
+  const label = `offers[${index}]`;
+  for (const field of ['vendor', 'product', 'pricing_status', 'original_price', 'source_url']) {
+    if (!offer[field]) errors.push(`${label}: missing ${field}`);
+  }
+  if (!allowed.has(offer.pricing_status)) errors.push(`${label}: invalid pricing_status`);
+  if (!String(offer.source_url || '').startsWith('https://')) errors.push(`${label}: source_url must use https`);
+  const numeric = offer.normalized_cny_per_1000_short_texts;
+  const isPublic = offer.pricing_status.startsWith('public');
+  if (isPublic && !(typeof numeric === 'number' && numeric >= 0)) {
+    errors.push(`${label}: public offer requires a non-negative normalized price`);
+  }
+  if (!isPublic && numeric !== null) {
+    errors.push(`${label}: non-public offer must not invent a normalized price`);
+  }
+}
+
+const numericOffers = catalog.offers.filter((offer) => typeof offer.normalized_cny_per_1000_short_texts === 'number');
+const mean = numericOffers.reduce((sum, offer) => sum + offer.normalized_cny_per_1000_short_texts, 0) / numericOffers.length;
+if (Math.abs(mean - catalog.summary.public_base_mean_cny) > 0.005) {
+  errors.push(`summary mean ${catalog.summary.public_base_mean_cny} does not match computed ${mean.toFixed(2)}`);
+}
+
+if (numericOffers.length !== catalog.summary.public_numeric_vendor_count) {
+  errors.push(`summary numeric count ${catalog.summary.public_numeric_vendor_count} does not match computed ${numericOffers.length}`);
+}
+
+const nonNumericCount = catalog.offers.length - numericOffers.length;
+if (nonNumericCount !== catalog.summary.quote_or_dynamic_vendor_count) {
+  errors.push(`summary non-numeric count ${catalog.summary.quote_or_dynamic_vendor_count} does not match computed ${nonNumericCount}`);
+}
+
+const publicTierValues = numericOffers.flatMap((offer) =>
+  [offer.public_low_cny, offer.public_high_cny].filter((value) => typeof value === 'number')
+);
+const nonzeroLow = Math.min(...publicTierValues.filter((value) => value > 0));
+if (Math.abs(nonzeroLow - catalog.summary.public_base_nonzero_low_cny) > 0.005) {
+  errors.push(`summary nonzero low ${catalog.summary.public_base_nonzero_low_cny} does not match computed ${nonzeroLow}`);
+}
+
+if (errors.length) {
+  console.error(errors.join('\n'));
+  process.exit(1);
+}
+
+console.log(`Catalog valid: ${catalog.offers.length} offers; normalized mean CNY ${mean.toFixed(2)}/1000 texts; USD/CNY ${exchange.rate.toFixed(4)} on ${exchange.rate_date}.`);
