@@ -1,11 +1,19 @@
 import fs from 'node:fs';
 
 const file = new URL('../data/text-risk-pricing.json', import.meta.url);
+const exchangeFile = new URL('../data/exchange-rate.json', import.meta.url);
+const livePricingFile = new URL('../data/live-pricing.json', import.meta.url);
 const catalog = JSON.parse(fs.readFileSync(file, 'utf8'));
+const exchange = JSON.parse(fs.readFileSync(exchangeFile, 'utf8'));
+const livePricing = JSON.parse(fs.readFileSync(livePricingFile, 'utf8'));
 
 const errors = [];
 if (!catalog.verified_at) errors.push('missing verified_at');
 if (!Array.isArray(catalog.offers) || catalog.offers.length === 0) errors.push('offers must be non-empty');
+if (!(exchange.rate > 0) || !exchange.rate_date || !exchange.source_url) errors.push('exchange rate requires rate, date and source');
+if (catalog.currency_assumption.usd_to_cny !== exchange.rate) errors.push('text catalog exchange rate differs from exchange-rate.json');
+if (livePricing.workload.usd_cny !== exchange.rate) errors.push('VLM catalog exchange rate differs from exchange-rate.json');
+if (livePricing.workload.exchange_rate_date !== exchange.rate_date) errors.push('VLM exchange rate date differs from exchange-rate.json');
 
 const verifiedAt = new Date(`${catalog.verified_at}T00:00:00Z`);
 const ageDays = (Date.now() - verifiedAt.getTime()) / 86_400_000;
@@ -67,4 +75,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Catalog valid: ${catalog.offers.length} offers; normalized mean CNY ${mean.toFixed(2)}/1000 texts.`);
+console.log(`Catalog valid: ${catalog.offers.length} offers; normalized mean CNY ${mean.toFixed(2)}/1000 texts; USD/CNY ${exchange.rate.toFixed(4)} on ${exchange.rate_date}.`);

@@ -24,13 +24,12 @@ function renderVlm() {
     return true;
   });
 
+  document.querySelector("#vlm-count").textContent = `${visible.length} / ${vlmRows.length} 条结果`;
   if (!visible.length) {
     body.innerHTML = '<tr><td colspan="5" class="empty-row">没有符合条件的模型</td></tr>';
-    document.querySelector("#vlm-count").textContent = "0 条结果";
     return;
   }
 
-  document.querySelector("#vlm-count").textContent = `${visible.length} / ${vlmRows.length} 条结果`;
   const max = Math.max(...vlmRows.map((row) => row.cny_per_1000));
   body.innerHTML = visible.map((row) => `
     <tr>
@@ -43,15 +42,52 @@ function renderVlm() {
   `).join("");
 }
 
-function renderTextRisk(data) {
-  const summary = data.summary;
-  document.querySelector("#verified-date").textContent = `文本报价核验：${data.verified_at}`;
-  document.querySelector("#text-range").textContent = `${formatPrice(summary.public_base_low_cny, 0)}–${formatPrice(summary.public_base_high_cny)}`;
+function parseBenchmark(csv, rate) {
+  const lines = csv.trim().split(/\r?\n/);
+  const headers = lines.shift().split(",");
+  const usdIndex = headers.indexOf("usd_per_1000");
+  const resultIndex = headers.indexOf("result");
+  const correct = lines.map((line) => line.split(","))
+    .filter((row) => !row[resultIndex].includes("wrong"))
+    .map((row) => Number(row[usdIndex]) * rate);
+  return {
+    count: correct.length,
+    low: Math.min(...correct),
+    high: Math.max(...correct),
+    mean: correct.reduce((sum, value) => sum + value, 0) / correct.length
+  };
+}
+
+function renderSnapshot(vlm, text, benchmark) {
+  const rate = vlm.workload.usd_cny;
+  const rateDate = vlm.workload.exchange_rate_date;
+  document.querySelector("#fx-rate").textContent = `USD/CNY ${rate.toFixed(4)}`;
+  document.querySelector("#fx-date").textContent = rateDate;
+  document.querySelector("#fx-source").href = vlm.workload.exchange_rate_source;
+  document.querySelector("#verified-date").textContent = `报价 ${text.verified_at}`;
+
+  document.querySelector("#lab-range").textContent = `${formatPrice(benchmark.low)}—${formatPrice(benchmark.high)}`;
+  document.querySelector("#lab-range-label").textContent = `${formatPrice(benchmark.low)}—${formatPrice(benchmark.high)}`;
+  document.querySelector("#lab-mean").textContent = formatPrice(benchmark.mean);
+  document.querySelector("#lab-count").textContent = benchmark.count;
+  document.querySelector("#vlm-total").textContent = vlm.rows.length;
+  document.querySelector("#vlm-scale-max").textContent = formatPrice(vlm.ceiling.cny_per_1000, 0);
+  document.querySelector("#catalog-range-label").textContent = `${formatPrice(vlm.floor.cny_per_1000)}—${formatPrice(vlm.ceiling.cny_per_1000)}`;
+  document.querySelector("#vlm-lab-band").style.width = `${benchmark.high / vlm.ceiling.cny_per_1000 * 100}%`;
+  document.querySelector("#vlm-ratio").textContent = `${(vlm.ceiling.cny_per_1000 / vlm.floor.cny_per_1000).toFixed(1)}×`;
+
+  const summary = text.summary;
+  document.querySelector("#text-range").textContent = `${formatPrice(summary.public_base_low_cny, 0)}—${formatPrice(summary.public_base_high_cny)}`;
+  document.querySelector("#text-low").textContent = formatPrice(summary.public_base_low_cny, 0);
   document.querySelector("#text-mean").textContent = formatPrice(summary.public_base_mean_cny);
+  document.querySelector("#text-high").textContent = formatPrice(summary.public_base_high_cny);
   document.querySelector("#text-floor").textContent = formatPrice(summary.public_base_nonzero_low_cny);
+  document.querySelector("#text-section-mean").textContent = formatPrice(summary.public_base_mean_cny);
   document.querySelector("#public-count").textContent = summary.public_numeric_vendor_count;
   document.querySelector("#quote-count").textContent = summary.quote_or_dynamic_vendor_count;
+}
 
+function renderTextRisk(data) {
   const body = document.querySelector("#text-vendor-body");
   body.innerHTML = data.offers.map((offer) => {
     const hasPrice = typeof offer.normalized_cny_per_1000_short_texts === "number";
@@ -80,20 +116,24 @@ function renderTextRisk(data) {
 
 async function loadData() {
   try {
-    const [vlm, text] = await Promise.all([
-      fetch("./data/live-pricing.json").then((response) => {
+    const [vlm, text, benchmarkCsv] = await Promise.all([
+      fetch("./data/live-pricing.json", { cache: "no-store" }).then((response) => {
         if (!response.ok) throw new Error("VLM 数据读取失败");
         return response.json();
       }),
-      fetch("./data/text-risk-pricing.json").then((response) => {
+      fetch("./data/text-risk-pricing.json", { cache: "no-store" }).then((response) => {
         if (!response.ok) throw new Error("文本报价读取失败");
         return response.json();
+      }),
+      fetch("./data/benchmark-results.csv", { cache: "no-store" }).then((response) => {
+        if (!response.ok) throw new Error("实验数据读取失败");
+        return response.text();
       })
     ]);
     vlmRows = vlm.rows;
-    document.querySelector("#vlm-ratio").textContent = `${(vlm.ceiling.cny_per_1000 / vlm.floor.cny_per_1000).toFixed(1)}×`;
     renderVlm();
     renderTextRisk(text);
+    renderSnapshot(vlm, text, parseBenchmark(benchmarkCsv, vlm.workload.usd_cny));
   } catch (error) {
     document.querySelector("#vlm-table-body").innerHTML = `<tr><td colspan="5" class="empty-row">${error.message}</td></tr>`;
     document.querySelector("#text-vendor-body").innerHTML = `<tr><td colspan="5" class="empty-row">${error.message}</td></tr>`;

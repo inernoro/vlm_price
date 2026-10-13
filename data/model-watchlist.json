@@ -4,8 +4,7 @@
   "workload": {
     "images": 1000,
     "input_tokens_per_image": 1500,
-    "output_tokens_per_image": 200,
-    "usd_cny": 7.2
+    "output_tokens_per_image": 200
   },
   "models": [
     {"id": "qwen/qwen3.7-flash", "lab_status": "已实测·重试正确", "position": "价格下沿"},

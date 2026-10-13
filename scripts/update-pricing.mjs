@@ -5,10 +5,12 @@ import process from "node:process";
 
 const root = new URL("../", import.meta.url);
 const configUrl = new URL("data/model-watchlist.json", root);
+const exchangeRateUrl = new URL("data/exchange-rate.json", root);
 const outputUrl = new URL("data/live-pricing.json", root);
 const readmeUrl = new URL("README.md", root);
 
 const config = JSON.parse(await readFile(configUrl, "utf8"));
+const exchangeRate = JSON.parse(await readFile(exchangeRateUrl, "utf8"));
 const response = await fetch(config.source, {
   headers: { "User-Agent": "vlm-price-board/1.0" }
 });
@@ -28,7 +30,12 @@ if (missing.length) {
   throw new Error(`watchlist models missing from source: ${missing.map((m) => m.id).join(", ")}`);
 }
 
-const workload = config.workload;
+const workload = {
+  ...config.workload,
+  usd_cny: exchangeRate.rate,
+  exchange_rate_date: exchangeRate.rate_date,
+  exchange_rate_source: exchangeRate.source_url
+};
 const round = (value) => Number(value.toFixed(9));
 const rows = config.models.map((entry) => {
   const model = byId.get(entry.id);
@@ -78,7 +85,7 @@ const lines = [
   "",
   `> 自动核验：${checkedAt}；来源：[OpenRouter Models API](${config.source})。`,
   "",
-  `统一预算假设：每张 ${workload.input_tokens_per_image} 输入 token、${workload.output_tokens_per_image} 输出 token，共 ${workload.images} 张；$1 = ¥${workload.usd_cny.toFixed(2)}。这是目录预算，不是实验实付。`,
+  `统一预算假设：每张 ${workload.input_tokens_per_image} 输入 token、${workload.output_tokens_per_image} 输出 token，共 ${workload.images} 张；$1 = ¥${workload.usd_cny.toFixed(4)}（[${exchangeRate.source_name}](${exchangeRate.source_url}) ${exchangeRate.rate_date} 中间价）。这是目录预算，不是实验实付。`,
   "",
   "| 指标 | 数值 | 模型 |",
   "|---|---:|---|",
