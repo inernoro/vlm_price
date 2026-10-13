@@ -15,6 +15,7 @@ if (ageDays < -1) errors.push('verified_at cannot be in the future');
 
 const allowed = new Set([
   'public',
+  'public_reference',
   'public_tiered',
   'public_region_specific',
   'dynamic_console',
@@ -42,6 +43,23 @@ const numericOffers = catalog.offers.filter((offer) => typeof offer.normalized_c
 const mean = numericOffers.reduce((sum, offer) => sum + offer.normalized_cny_per_1000_short_texts, 0) / numericOffers.length;
 if (Math.abs(mean - catalog.summary.public_base_mean_cny) > 0.005) {
   errors.push(`summary mean ${catalog.summary.public_base_mean_cny} does not match computed ${mean.toFixed(2)}`);
+}
+
+if (numericOffers.length !== catalog.summary.public_numeric_vendor_count) {
+  errors.push(`summary numeric count ${catalog.summary.public_numeric_vendor_count} does not match computed ${numericOffers.length}`);
+}
+
+const nonNumericCount = catalog.offers.length - numericOffers.length;
+if (nonNumericCount !== catalog.summary.quote_or_dynamic_vendor_count) {
+  errors.push(`summary non-numeric count ${catalog.summary.quote_or_dynamic_vendor_count} does not match computed ${nonNumericCount}`);
+}
+
+const publicTierValues = numericOffers.flatMap((offer) =>
+  [offer.public_low_cny, offer.public_high_cny].filter((value) => typeof value === 'number')
+);
+const nonzeroLow = Math.min(...publicTierValues.filter((value) => value > 0));
+if (Math.abs(nonzeroLow - catalog.summary.public_base_nonzero_low_cny) > 0.005) {
+  errors.push(`summary nonzero low ${catalog.summary.public_base_nonzero_low_cny} does not match computed ${nonzeroLow}`);
 }
 
 if (errors.length) {
