@@ -26,9 +26,11 @@ function renderVlm() {
 
   if (!visible.length) {
     body.innerHTML = '<tr><td colspan="5" class="empty-row">没有符合条件的模型</td></tr>';
+    document.querySelector("#vlm-count").textContent = "0 条结果";
     return;
   }
 
+  document.querySelector("#vlm-count").textContent = `${visible.length} / ${vlmRows.length} 条结果`;
   const max = Math.max(...vlmRows.map((row) => row.cny_per_1000));
   body.innerHTML = visible.map((row) => `
     <tr>
@@ -50,32 +52,28 @@ function renderTextRisk(data) {
   document.querySelector("#public-count").textContent = summary.public_numeric_vendor_count;
   document.querySelector("#quote-count").textContent = summary.quote_or_dynamic_vendor_count;
 
-  const grid = document.querySelector("#text-vendor-grid");
-  const max = Math.max(...data.offers.map((offer) => offer.public_high_cny || 0));
-  grid.innerHTML = data.offers.map((offer) => {
+  const body = document.querySelector("#text-vendor-body");
+  body.innerHTML = data.offers.map((offer) => {
     const hasPrice = typeof offer.normalized_cny_per_1000_short_texts === "number";
     const state = offer.pricing_status === "quote_required"
       ? ["quote", "商务询价"]
       : offer.pricing_status === "public_reference"
         ? ["reference", "官方参考"]
         : ["", "公开可复核"];
+    const low = offer.public_low_cny ?? offer.normalized_cny_per_1000_short_texts;
+    const mean = offer.public_mean_cny ?? offer.normalized_cny_per_1000_short_texts;
+    const high = offer.public_high_cny ?? offer.normalized_cny_per_1000_short_texts;
     const range = hasPrice
-      ? `${formatPrice(offer.public_low_cny ?? offer.normalized_cny_per_1000_short_texts)}–${formatPrice(offer.public_high_cny ?? offer.normalized_cny_per_1000_short_texts)}`
-      : "暂无公开数字";
-    const width = hasPrice ? Math.max(2, (offer.public_high_cny || offer.normalized_cny_per_1000_short_texts) / max * 100) : 0;
+      ? `<div class="range-value"><span><small>低</small>${formatPrice(low)}</span><span><small>均</small>${formatPrice(mean)}</span><span><small>高</small>${formatPrice(high)}</span></div>`
+      : '<span class="model-position">未公开</span>';
     return `
-      <article class="vendor-card">
-        <div class="vendor-top">
-          <div><h3 class="vendor-name">${offer.vendor}</h3><p class="vendor-product">${offer.product}</p></div>
-          <a class="source-link" href="${offer.source_url}" target="_blank" rel="noreferrer" aria-label="查看 ${offer.vendor} 官方来源">↗</a>
-        </div>
-        <div class="vendor-price">
-          <span>统一基础价</span>
-          <strong>${hasPrice ? formatPrice(offer.normalized_cny_per_1000_short_texts) : "询价"}<small>${hasPrice ? " / 1000 条" : ""}</small></strong>
-          <div class="range-track"><i style="width:${width}%"></i></div>
-          <div class="vendor-meta"><span>${range}</span><span class="vendor-state ${state[0]}">${state[1]}</span></div>
-        </div>
-      </article>
+      <tr>
+        <td><span class="vendor-name">${offer.vendor}</span><span class="vendor-product">${offer.product}</span></td>
+        <td class="price-cell"><strong>${hasPrice ? formatPrice(offer.normalized_cny_per_1000_short_texts) : "询价"}</strong></td>
+        <td>${range}</td>
+        <td><span class="vendor-state ${state[0]}">${state[1]}</span></td>
+        <td><a class="source-link" href="${offer.source_url}" target="_blank" rel="noreferrer" aria-label="查看 ${offer.vendor} 官方来源">官方来源 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></td>
+      </tr>
     `;
   }).join("");
 }
@@ -98,7 +96,7 @@ async function loadData() {
     renderTextRisk(text);
   } catch (error) {
     document.querySelector("#vlm-table-body").innerHTML = `<tr><td colspan="5" class="empty-row">${error.message}</td></tr>`;
-    document.querySelector("#text-vendor-grid").innerHTML = `<p class="loading-card">${error.message}</p>`;
+    document.querySelector("#text-vendor-body").innerHTML = `<tr><td colspan="5" class="empty-row">${error.message}</td></tr>`;
   }
 }
 
