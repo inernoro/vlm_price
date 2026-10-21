@@ -7,26 +7,46 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   update:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
       - name: Refresh public pricing
         run: node scripts/update-pricing.mjs
+      - name: Validate generated catalogs
+        run: node scripts/validate-catalog.mjs
       - name: Commit changed snapshot
         run: |
-          if git diff --quiet -- README.md data/live-pricing.json; then
+          if git diff --quiet -- README.md data/exchange-rate.json data/live-pricing.json data/text-risk-pricing.json data/text-risk-pricing.csv; then
             echo "No pricing changes"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md data/live-pricing.json
-          git commit -m "chore: refresh VLM pricing"
+          git add README.md data/exchange-rate.json data/live-pricing.json data/text-risk-pricing.json data/text-risk-pricing.csv
+          git commit -m "chore: refresh pricing and exchange rate"
           git push
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

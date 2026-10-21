@@ -150,11 +150,11 @@ main, footer { width: var(--page); margin: 0 auto; }
 .table-key { min-height: 62px; display: flex; align-items: center; gap: 20px; border-bottom: 1px solid var(--line-dark); color: var(--muted); font-size: 9px; }
 .table-key span { display: inline-flex; align-items: center; gap: 7px; }
 .key-dot { width: 7px; height: 7px; border-radius: 50%; }
-.key-dot.public { background: var(--green); }.key-dot.reference { background: var(--blue); }.key-dot.quote { background: var(--accent); }
+.key-dot.public { background: var(--green); }.key-dot.reference { background: var(--blue); }.key-dot.dynamic { background: #8b5cf6; }.key-dot.quote { background: var(--accent); }
 .text-table td:nth-child(2), .text-table td:nth-child(3) { font-family: "SFMono-Regular", Consolas, monospace; }
 .range-value { display: grid; grid-template-columns: repeat(3,54px); gap: 8px; }
 .range-value small { display: block; margin-bottom: 4px; color: var(--muted); font-size: 8px; }
-.vendor-state.reference { border-color: var(--blue); color: var(--blue); }.vendor-state.quote { border-color: var(--accent); color: var(--accent); }
+.vendor-state.reference { border-color: var(--blue); color: var(--blue); }.vendor-state.dynamic { border-color: #8b5cf6; color: #6d28d9; }.vendor-state.quote { border-color: var(--accent); color: var(--accent); }
 .source-link { min-height: 44px; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; }
 .source-link:hover { color: var(--accent); }
 .source-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; }

@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
   "source": "https://openrouter.ai/api/v1/models",
-  "checked_at": "2026-08-14T09:47:57.346Z",
+  "checked_at": "2026-10-21T10:01:56.275Z",
   "workload": {
     "images": 1000,
     "input_tokens_per_image": 1500,
     "output_tokens_per_image": 200,
-    "usd_cny": 6.7313,
-    "exchange_rate_date": "2026-10-12",
+    "usd_cny": 6.7192,
+    "exchange_rate_date": "2026-10-21",
     "exchange_rate_source": "https://www.chinamoney.com.cn/chinese/bkccpr/index.html?tab=2"
   },
   "floor": {
     "id": "qwen/qwen3.7-flash",
-    "cny_per_1000": 0.4779223
+    "cny_per_1000": 0.4770632
   },
   "ceiling": {
     "id": "anthropic/claude-opus-5",
-    "cny_per_1000": 84.14125
+    "cny_per_1000": 83.99
   },
   "rows": [
     {
@@ -26,7 +26,7 @@
       "input_usd_per_million": 0.03,
       "output_usd_per_million": 0.13,
       "usd_per_1000": 0.071,
-      "cny_per_1000": 0.4779223,
+      "cny_per_1000": 0.4770632,
       "lab_status": "已实测·重试正确",
       "position": "价格下沿",
       "input_modalities": [
@@ -42,7 +42,7 @@
       "input_usd_per_million": 0.1,
       "output_usd_per_million": 0.4,
       "usd_per_1000": 0.23,
-      "cny_per_1000": 1.548199,
+      "cny_per_1000": 1.545416,
       "lab_status": "待复测",
       "position": "低价候选",
       "input_modalities": [
@@ -52,29 +52,13 @@
       ]
     },
     {
-      "id": "openai/gpt-5.6-luna",
-      "name": "OpenAI: GPT-5.6 Luna",
-      "created": 1783590864,
-      "input_usd_per_million": 0.1,
-      "output_usd_per_million": 0.6,
-      "usd_per_1000": 0.27,
-      "cny_per_1000": 1.817451,
-      "lab_status": "待复测",
-      "position": "OpenAI 低成本档",
-      "input_modalities": [
-        "file",
-        "image",
-        "text"
-      ]
-    },
-    {
       "id": "mistralai/mistral-small-2603",
       "name": "Mistral: Mistral Small 4",
       "created": 1773695685,
       "input_usd_per_million": 0.15,
       "output_usd_per_million": 0.6,
       "usd_per_1000": 0.345,
-      "cny_per_1000": 2.3222985,
+      "cny_per_1000": 2.318124,
       "lab_status": "已实测·误判",
       "position": "风险对照",
       "input_modalities": [
@@ -89,13 +73,29 @@
       "input_usd_per_million": 0.2,
       "output_usd_per_million": 1.15,
       "usd_per_1000": 0.53,
-      "cny_per_1000": 3.567589,
+      "cny_per_1000": 3.561176,
       "lab_status": "已实测·正确",
       "position": "通用候选",
       "input_modalities": [
         "text",
         "image",
         "video"
+      ]
+    },
+    {
+      "id": "openai/gpt-5.6-luna",
+      "name": "OpenAI: GPT-5.6 Luna",
+      "created": 1783590864,
+      "input_usd_per_million": 0.2,
+      "output_usd_per_million": 1.2,
+      "usd_per_1000": 0.54,
+      "cny_per_1000": 3.628368,
+      "lab_status": "待复测",
+      "position": "OpenAI 低成本档",
+      "input_modalities": [
+        "file",
+        "image",
+        "text"
       ]
     },
     {
@@ -105,7 +105,7 @@
       "input_usd_per_million": 0.3,
       "output_usd_per_million": 1.2,
       "usd_per_1000": 0.69,
-      "cny_per_1000": 4.644597,
+      "cny_per_1000": 4.636248,
       "lab_status": "已实测·正确",
       "position": "通用候选",
       "input_modalities": [
@@ -115,51 +115,33 @@
       ]
     },
     {
+      "id": "meta/muse-glimmer-30b",
+      "name": "Meta: Muse Glimmer 30B",
+      "created": 1786302394,
+      "input_usd_per_million": 0.3,
+      "output_usd_per_million": 1.2,
+      "usd_per_1000": 0.69,
+      "cny_per_1000": 4.636248,
+      "lab_status": "待复测",
+      "position": "通用候选",
+      "input_modalities": [
+        "text",
+        "image"
+      ]
+    },
+    {
       "id": "qwen/qwen3.7-plus",
       "name": "Qwen: Qwen3.7 Plus",
       "created": 1780491783,
       "input_usd_per_million": 0.32,
       "output_usd_per_million": 1.28,
       "usd_per_1000": 0.736,
-      "cny_per_1000": 4.9542368,
+      "cny_per_1000": 4.9453312,
       "lab_status": "待复测",
       "position": "通用候选",
       "input_modalities": [
         "text",
         "image"
-      ]
-    },
-    {
-      "id": "meta/muse-glimmer-30b",
-      "name": "Meta: Muse Glimmer 30B",
-      "created": 1786302394,
-      "input_usd_per_million": 0.35,
-      "output_usd_per_million": 1.5,
-      "usd_per_1000": 0.825,
-      "cny_per_1000": 5.5533225,
-      "lab_status": "待复测",
-      "position": "通用候选",
-      "input_modalities": [
-        "text",
-        "image"
-      ]
-    },
-    {
-      "id": "google/gemini-3.7-flash",
-      "name": "Google: Gemini 3.7 Flash",
-      "created": 1786640581,
-      "input_usd_per_million": 0.375,
-      "output_usd_per_million": 1.875,
-      "usd_per_1000": 0.9375,
-      "cny_per_1000": 6.31059375,
-      "lab_status": "待复测",
-      "position": "当前候选",
-      "input_modalities": [
-        "text",
-        "image",
-        "video",
-        "file",
-        "audio"
       ]
     },
     {
@@ -169,7 +151,7 @@
       "input_usd_per_million": 0.3,
       "output_usd_per_million": 2.5,
       "usd_per_1000": 0.95,
-      "cny_per_1000": 6.394735,
+      "cny_per_1000": 6.38324,
       "lab_status": "已实测·正确",
       "position": "历史对照",
       "input_modalities": [
@@ -187,7 +169,7 @@
       "input_usd_per_million": 0.5,
       "output_usd_per_million": 2.5,
       "usd_per_1000": 1.25,
-      "cny_per_1000": 8.414125,
+      "cny_per_1000": 8.399,
       "lab_status": "已实测·正确",
       "position": "当前候选",
       "input_modalities": [
@@ -197,13 +179,31 @@
       ]
     },
     {
+      "id": "google/gemini-3.7-flash",
+      "name": "Google: Gemini 3.7 Flash",
+      "created": 1786640581,
+      "input_usd_per_million": 0.75,
+      "output_usd_per_million": 3.75,
+      "usd_per_1000": 1.875,
+      "cny_per_1000": 12.5985,
+      "lab_status": "待复测",
+      "position": "当前候选",
+      "input_modalities": [
+        "text",
+        "image",
+        "video",
+        "file",
+        "audio"
+      ]
+    },
+    {
       "id": "z-ai/glm-5v-turbo",
       "name": "Z.ai: GLM 5V Turbo",
       "created": 1775061458,
       "input_usd_per_million": 1.2,
       "output_usd_per_million": 4,
       "usd_per_1000": 2.6,
-      "cny_per_1000": 17.50138,
+      "cny_per_1000": 17.46992,
       "lab_status": "已实测·重试正确",
       "position": "视觉推理候选",
       "input_modalities": [
@@ -213,45 +213,13 @@
       ]
     },
     {
-      "id": "openai/gpt-5.6-terra",
-      "name": "OpenAI: GPT-5.6 Terra",
-      "created": 1783590857,
-      "input_usd_per_million": 1,
-      "output_usd_per_million": 6,
-      "usd_per_1000": 2.7,
-      "cny_per_1000": 18.17451,
-      "lab_status": "待复测",
-      "position": "OpenAI 平衡档",
-      "input_modalities": [
-        "file",
-        "image",
-        "text"
-      ]
-    },
-    {
-      "id": "anthropic/claude-sonnet-5",
-      "name": "Anthropic: Claude Sonnet 5",
-      "created": 1782843083,
-      "input_usd_per_million": 2,
-      "output_usd_per_million": 10,
-      "usd_per_1000": 5,
-      "cny_per_1000": 33.6565,
-      "lab_status": "待复测",
-      "position": "高能力档",
-      "input_modalities": [
-        "text",
-        "image",
-        "file"
-      ]
-    },
-    {
       "id": "moonshotai/kimi-k3",
       "name": "MoonshotAI: Kimi K3",
       "created": 1784215858,
-      "input_usd_per_million": 3,
-      "output_usd_per_million": 15,
-      "usd_per_1000": 7.5,
-      "cny_per_1000": 50.48475,
+      "input_usd_per_million": 0.239,
+      "output_usd_per_million": 11.936,
+      "usd_per_1000": 2.7457,
+      "cny_per_1000": 18.44890744,
       "lab_status": "已实测·正确",
       "position": "高能力档",
       "input_modalities": [
@@ -261,13 +229,45 @@
       ]
     },
     {
+      "id": "anthropic/claude-sonnet-5",
+      "name": "Anthropic: Claude Sonnet 5",
+      "created": 1782843083,
+      "input_usd_per_million": 2,
+      "output_usd_per_million": 10,
+      "usd_per_1000": 5,
+      "cny_per_1000": 33.596,
+      "lab_status": "待复测",
+      "position": "高能力档",
+      "input_modalities": [
+        "text",
+        "image",
+        "file"
+      ]
+    },
+    {
+      "id": "openai/gpt-5.6-terra",
+      "name": "OpenAI: GPT-5.6 Terra",
+      "created": 1783590857,
+      "input_usd_per_million": 2,
+      "output_usd_per_million": 12,
+      "usd_per_1000": 5.4,
+      "cny_per_1000": 36.28368,
+      "lab_status": "待复测",
+      "position": "OpenAI 平衡档",
+      "input_modalities": [
+        "file",
+        "image",
+        "text"
+      ]
+    },
+    {
       "id": "anthropic/claude-opus-5",
-      "name": "Claude Opus 5",
+      "name": "Anthropic: Claude Opus 5",
       "created": 1784912544,
       "input_usd_per_million": 5,
       "output_usd_per_million": 25,
       "usd_per_1000": 12.5,
-      "cny_per_1000": 84.14125,
+      "cny_per_1000": 83.99,
       "lab_status": "待复测",
       "position": "价格上沿",
       "input_modalities": [

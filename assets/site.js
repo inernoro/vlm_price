@@ -10,6 +10,22 @@ const statusClass = (status = "") => {
   return "";
 };
 
+const escapeHtml = (value) => String(value ?? "")
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;")
+  .replaceAll("'", "&#39;");
+
+const safeHttpUrl = (value) => {
+  try {
+    const url = new URL(String(value));
+    return ["http:", "https:"].includes(url.protocol) ? url.href : "#";
+  } catch {
+    return "#";
+  }
+};
+
 let vlmRows = [];
 let vlmFilter = "all";
 
@@ -33,10 +49,10 @@ function renderVlm() {
   const max = Math.max(...vlmRows.map((row) => row.cny_per_1000));
   body.innerHTML = visible.map((row) => `
     <tr>
-      <td><span class="model-name">${row.name}</span><span class="model-position">${row.position}</span></td>
+      <td><span class="model-name">${escapeHtml(row.name)}</span><span class="model-position">${escapeHtml(row.position)}</span></td>
       <td>${row.input_usd_per_million.toFixed(3)} / ${row.output_usd_per_million.toFixed(3)}</td>
       <td class="price-cell"><strong>${formatPrice(row.cny_per_1000)}</strong></td>
-      <td><span class="status-pill ${statusClass(row.lab_status)}">${row.lab_status}</span></td>
+      <td><span class="status-pill ${statusClass(row.lab_status)}">${escapeHtml(row.lab_status)}</span></td>
       <td><div class="cost-bar" title="${formatPrice(row.cny_per_1000)}"><i style="width:${Math.max(1, row.cny_per_1000 / max * 100)}%"></i></div></td>
     </tr>
   `).join("");
@@ -47,8 +63,9 @@ function parseBenchmark(csv, rate) {
   const headers = lines.shift().split(",");
   const usdIndex = headers.indexOf("usd_per_1000");
   const resultIndex = headers.indexOf("result");
+  const accepted = new Set(["correct", "correct_on_retry"]);
   const correct = lines.map((line) => line.split(","))
-    .filter((row) => !row[resultIndex].includes("wrong"))
+    .filter((row) => accepted.has(row[resultIndex]))
     .map((row) => Number(row[usdIndex]) * rate);
   return {
     count: correct.length,
@@ -63,7 +80,7 @@ function renderSnapshot(vlm, text, benchmark) {
   const rateDate = vlm.workload.exchange_rate_date;
   document.querySelector("#fx-rate").textContent = `USD/CNY ${rate.toFixed(4)}`;
   document.querySelector("#fx-date").textContent = rateDate;
-  document.querySelector("#fx-source").href = vlm.workload.exchange_rate_source;
+  document.querySelector("#fx-source").href = safeHttpUrl(vlm.workload.exchange_rate_source);
   document.querySelector("#verified-date").textContent = `报价 ${text.verified_at}`;
 
   document.querySelector("#lab-range").textContent = `${formatPrice(benchmark.low)}—${formatPrice(benchmark.high)}`;
@@ -93,6 +110,8 @@ function renderTextRisk(data) {
     const hasPrice = typeof offer.normalized_cny_per_1000_short_texts === "number";
     const state = offer.pricing_status === "quote_required"
       ? ["quote", "商务询价"]
+      : offer.pricing_status === "dynamic_console"
+        ? ["dynamic", "控制台核价"]
       : offer.pricing_status === "public_reference"
         ? ["reference", "官方参考"]
         : ["", "公开可复核"];
@@ -104,11 +123,11 @@ function renderTextRisk(data) {
       : '<span class="model-position">未公开</span>';
     return `
       <tr>
-        <td><span class="vendor-name">${offer.vendor}</span><span class="vendor-product">${offer.product}</span></td>
+        <td><span class="vendor-name">${escapeHtml(offer.vendor)}</span><span class="vendor-product">${escapeHtml(offer.product)}</span></td>
         <td class="price-cell"><strong>${hasPrice ? formatPrice(offer.normalized_cny_per_1000_short_texts) : "询价"}</strong></td>
         <td>${range}</td>
         <td><span class="vendor-state ${state[0]}">${state[1]}</span></td>
-        <td><a class="source-link" href="${offer.source_url}" target="_blank" rel="noreferrer" aria-label="查看 ${offer.vendor} 官方来源">官方来源 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></td>
+        <td><a class="source-link" href="${safeHttpUrl(offer.source_url)}" target="_blank" rel="noreferrer" aria-label="查看 ${escapeHtml(offer.vendor)} 官方来源">官方来源 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></td>
       </tr>
     `;
   }).join("");
@@ -135,8 +154,8 @@ async function loadData() {
     renderTextRisk(text);
     renderSnapshot(vlm, text, parseBenchmark(benchmarkCsv, vlm.workload.usd_cny));
   } catch (error) {
-    document.querySelector("#vlm-table-body").innerHTML = `<tr><td colspan="5" class="empty-row">${error.message}</td></tr>`;
-    document.querySelector("#text-vendor-body").innerHTML = `<tr><td colspan="5" class="empty-row">${error.message}</td></tr>`;
+    document.querySelector("#vlm-table-body").innerHTML = `<tr><td colspan="5" class="empty-row">${escapeHtml(error.message)}</td></tr>`;
+    document.querySelector("#text-vendor-body").innerHTML = `<tr><td colspan="5" class="empty-row">${escapeHtml(error.message)}</td></tr>`;
   }
 }
 

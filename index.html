@@ -58,7 +58,7 @@
             <div class="range-title">
               <span>VLM / 1,000 张 1024×1024 图片</span>
               <strong id="lab-range">—</strong>
-              <small>实验室正确结果区间</small>
+              <small>实验室成功单次请求区间</small>
             </div>
             <div class="range-scale" aria-label="VLM 价格范围示意">
               <span class="scale-start">¥0</span><span class="scale-end" id="vlm-scale-max">¥90</span>
@@ -141,7 +141,7 @@
             <tbody id="vlm-table-body"><tr><td colspan="5" class="loading-row">正在读取当前目录价格…</td></tr></tbody>
           </table>
         </div>
-        <p class="table-footnote"><sup>1</sup> 目录最低价不等于业务成本最低；“待复测”模型不参与效果结论。实验状态来自统一测试图，目录价格来自公开模型 API。</p>
+        <p class="table-footnote"><sup>1</sup> 实验区间为成功单次请求费用；失败请求、重试和兜底模型费用另计。目录最低价不等于业务成本最低；“待复测”模型不参与效果结论。</p>
       </section>
 
       <section class="data-section" id="text-risk" aria-labelledby="text-title">
@@ -150,7 +150,7 @@
           <p>统一比较 1,000 条、每条不超过 100 Unicode 字符、每条单独请求。公开档位保留下限、均值和上限。</p>
           <dl class="side-stat"><dt>样本均值</dt><dd id="text-section-mean">—</dd></dl>
         </header>
-        <div class="table-key" aria-label="状态说明"><span><i class="key-dot public"></i>公开价格</span><span><i class="key-dot reference"></i>官方参考价</span><span><i class="key-dot quote"></i>需询价</span></div>
+        <div class="table-key" aria-label="状态说明"><span><i class="key-dot public"></i>公开价格</span><span><i class="key-dot reference"></i>官方参考价</span><span><i class="key-dot dynamic"></i>控制台核价</span><span><i class="key-dot quote"></i>需询价</span></div>
         <div class="table-shell">
           <table class="price-table text-table">
             <thead><tr><th scope="col">厂商 / 产品</th><th scope="col">统一基础价<br /><small>¥/1,000 条</small></th><th scope="col">公开区间<br /><small>下限 / 均值 / 上限</small></th><th scope="col">价格状态</th><th scope="col">官方证据</th></tr></thead>
@@ -169,7 +169,7 @@
         <div class="evidence-strip">
           <div><span>报价来源</span><strong>官方价格页 / 文档 / 零售价 API</strong></div>
           <div><span>汇率来源</span><strong>中国外汇交易中心 USD/CNY 中间价</strong></div>
-          <div><span>时效规则</span><strong>静态报价超过 45 天校验失败</strong></div>
+          <div><span>时效规则</span><strong>静态公开报价超过 30 天校验失败</strong></div>
           <a href="./docs/02-交叉验算.md">查看交叉验算 →</a>
         </div>
       </section>
