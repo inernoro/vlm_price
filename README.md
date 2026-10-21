@@ -151,7 +151,7 @@ scripts/update-pricing.mjs
 node scripts/update-pricing.mjs
 ```
 
-GitHub Actions 每日执行，也支持 `workflow_dispatch` 手动刷新。监控模型和统一工作量定义在 [`data/model-watchlist.json`](data/model-watchlist.json)。
+GitHub Actions 每日从默认分支执行。为避免未合并分支通过手动触发覆盖 Pages，带部署权限的工作流不开放 `workflow_dispatch`。监控模型和统一工作量定义在 [`data/model-watchlist.json`](data/model-watchlist.json)。
 
 ## 文件索引
 
