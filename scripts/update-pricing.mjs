@@ -151,6 +151,25 @@ const snapshot = {
   rows
 };
 const textRisk = revalueTextRisk(previousTextRisk, exchangeRate);
+const textSummary = textRisk.summary;
+const textOverviewLines = [
+  "| 分类 | 统一比较单位 | 当前范围 | 状态 | 入口 |",
+  "|---|---|---:|---|---|",
+  "| VLM 单图识别 | 1000 张 1024×1024 单图 | 实验室 ¥0.74～¥42.90 | 目录价每日更新 | [完整报价](docs/01-完整报价表.md) |",
+  `| 文本内容风险识别 | 1000 条、每条不超过 100 Unicode 字符 | 公开基础价 ¥${fmt(textSummary.public_base_low_cny, 0)}～¥${fmt(textSummary.public_base_high_cny)} | ${textRisk.verified_at} 官方来源核验 | [厂商报价](docs/06-文本内容风险识别报价.md) |`
+];
+const textSummaryLines = [
+  "### 文本风险识别摘要",
+  "",
+  "| 指标 | 价格（人民币/1000 条） | 说明 |",
+  "|---|---:|---|",
+  `| 公开基础价下限 | **¥${textSummary.public_base_low_cny.toFixed(2)}** | OpenAI \`omni-moderation-latest\`；官方标注免费 |`,
+  `| 非零公开价下限 | **¥${textSummary.public_base_nonzero_low_cny.toFixed(2)}** | 华为云公开参考价最高用量阶梯；首个付费阶梯为 ¥0.30 |`,
+  `| 公开基础价样本均值 | **¥${textSummary.public_base_mean_cny.toFixed(2)}** | ${textSummary.public_numeric_vendor_count} 个有可复算公开基础价的厂商；询价项与阶段性免费额度不参与 |`,
+  `| 公开基础价上限 | **¥${textSummary.public_base_high_cny.toFixed(2)}** | Google Cloud Text Moderation，付费第一档 |`,
+  "",
+  `统一试算按 1000 条短文本、每条不超过 100 Unicode 字符、每条单独请求；美元报价采用 [${exchangeRate.source_name}](${exchangeRate.source_url}) ${exchangeRate.rate_date} USD/CNY 中间价 \`$1 = ¥${exchangeRate.rate.toFixed(4)}\`。均值用于判断公开目录价量级，不代表效果排名或合同成交价；详细公式和采购边界见[文本内容风险识别报价](docs/06-文本内容风险识别报价.md)。静态公开报价超过 30 天未复核时，仓库校验会失败。`
+];
 
 const lines = [
   "## 当前目录预算",
@@ -175,14 +194,26 @@ const start = "<!-- LIVE_PRICING_START -->";
 const end = "<!-- LIVE_PRICING_END -->";
 const readme = await readFile(readmeUrl, "utf8");
 const pattern = new RegExp(`${start}[\\s\\S]*?${end}`);
-if (!pattern.test(readme)) throw new Error("README live pricing markers not found");
+const overviewStart = "<!-- TEXT_RISK_OVERVIEW_START -->";
+const overviewEnd = "<!-- TEXT_RISK_OVERVIEW_END -->";
+const summaryStart = "<!-- TEXT_RISK_SUMMARY_START -->";
+const summaryEnd = "<!-- TEXT_RISK_SUMMARY_END -->";
+const overviewPattern = new RegExp(`${overviewStart}[\\s\\S]*?${overviewEnd}`);
+const summaryPattern = new RegExp(`${summaryStart}[\\s\\S]*?${summaryEnd}`);
+if (!pattern.test(readme) || !overviewPattern.test(readme) || !summaryPattern.test(readme)) {
+  throw new Error("README generated-section markers not found");
+}
+const nextReadme = readme
+  .replace(overviewPattern, `${overviewStart}\n${textOverviewLines.join("\n")}\n${overviewEnd}`)
+  .replace(summaryPattern, `${summaryStart}\n${textSummaryLines.join("\n")}\n${summaryEnd}`)
+  .replace(pattern, `${start}\n${lines.join("\n")}\n${end}`);
 
 await Promise.all([
   writeFile(exchangeRateUrl, `${JSON.stringify(exchangeRate, null, 2)}\n`),
   writeFile(outputUrl, `${JSON.stringify(snapshot, null, 2)}\n`),
   writeFile(textRiskUrl, `${JSON.stringify(textRisk, null, 2)}\n`),
   writeFile(textRiskCsvUrl, textRiskCsv(textRisk)),
-  writeFile(readmeUrl, readme.replace(pattern, `${start}\n${lines.join("\n")}\n${end}`))
+  writeFile(readmeUrl, nextReadme)
 ]);
 
 console.log(`updated ${rows.length} models and USD/CNY ${exchangeRate.rate} (${exchangeRate.rate_date}); floor=${floor.id}; ceiling=${ceiling.id}`);

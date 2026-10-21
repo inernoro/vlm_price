@@ -8,6 +8,7 @@ const csvText = fs.readFileSync(dataUrl("text-risk-pricing.csv"), "utf8");
 const errors = [];
 const tolerance = 0.005;
 const close = (actual, expected) => typeof actual === "number" && Math.abs(actual - expected) <= tolerance;
+const precise = (actual, expected) => typeof actual === "number" && Number.isFinite(actual) && Math.abs(actual - expected) <= 0.000001;
 const ageInDays = (date) => (Date.now() - new Date(`${date}T00:00:00Z`).getTime()) / 86_400_000;
 
 function parseCsv(text) {
@@ -39,6 +40,42 @@ if (!(exchange.rate > 0) || !exchange.rate_date || !exchange.source_url) errors.
 if (catalog.currency_assumption.usd_to_cny !== exchange.rate) errors.push("text catalog exchange rate differs from exchange-rate.json");
 if (livePricing.workload.usd_cny !== exchange.rate) errors.push("VLM catalog exchange rate differs from exchange-rate.json");
 if (livePricing.workload.exchange_rate_date !== exchange.rate_date) errors.push("VLM exchange rate date differs from exchange-rate.json");
+
+const workload = livePricing.workload ?? {};
+for (const field of ["images", "input_tokens_per_image", "output_tokens_per_image", "usd_cny"]) {
+  if (!(typeof workload[field] === "number" && Number.isFinite(workload[field]) && workload[field] > 0)) {
+    errors.push(`VLM workload requires positive ${field}`);
+  }
+}
+const vlmRows = Array.isArray(livePricing.rows) ? livePricing.rows : [];
+if (vlmRows.length === 0) errors.push("VLM catalog rows must be non-empty");
+const seenIds = new Set();
+for (const [index, row] of vlmRows.entries()) {
+  const label = `VLM rows[${index}]`;
+  if (!row.id || seenIds.has(row.id)) errors.push(`${label}: missing or duplicate id`);
+  seenIds.add(row.id);
+  if (!Array.isArray(row.input_modalities) || !row.input_modalities.includes("image")) errors.push(`${label}: image modality is required`);
+  if (![row.input_usd_per_million, row.output_usd_per_million].every((value) => typeof value === "number" && Number.isFinite(value) && value >= 0)) {
+    errors.push(`${label}: invalid input/output pricing`);
+    continue;
+  }
+  const expectedUsd = (
+    workload.input_tokens_per_image * row.input_usd_per_million / 1_000_000 +
+    workload.output_tokens_per_image * row.output_usd_per_million / 1_000_000
+  ) * workload.images;
+  if (!precise(row.usd_per_1000, expectedUsd)) errors.push(`${label}: usd_per_1000 does not match workload calculation`);
+  if (!precise(row.cny_per_1000, expectedUsd * workload.usd_cny)) errors.push(`${label}: cny_per_1000 does not match USD price and exchange rate`);
+}
+if (vlmRows.length) {
+  const floorRow = vlmRows.reduce((lowest, row) => row.cny_per_1000 < lowest.cny_per_1000 ? row : lowest);
+  const ceilingRow = vlmRows.reduce((highest, row) => row.cny_per_1000 > highest.cny_per_1000 ? row : highest);
+  if (livePricing.floor?.id !== floorRow.id || !precise(livePricing.floor?.cny_per_1000, floorRow.cny_per_1000)) {
+    errors.push("VLM floor does not match the minimum row");
+  }
+  if (livePricing.ceiling?.id !== ceilingRow.id || !precise(livePricing.ceiling?.cny_per_1000, ceilingRow.cny_per_1000)) {
+    errors.push("VLM ceiling does not match the maximum row");
+  }
+}
 
 const catalogAge = ageInDays(catalog.verified_at);
 if (!Number.isFinite(catalogAge)) errors.push("verified_at must be an ISO date");

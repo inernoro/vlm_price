@@ -58,15 +58,15 @@ function renderVlm() {
   `).join("");
 }
 
-function parseBenchmark(csv, rate) {
+function parseBenchmark(csv) {
   const lines = csv.trim().split(/\r?\n/);
   const headers = lines.shift().split(",");
-  const usdIndex = headers.indexOf("usd_per_1000");
+  const cnyIndex = headers.indexOf("cny_per_1000_at_6_7313");
   const resultIndex = headers.indexOf("result");
   const accepted = new Set(["correct", "correct_on_retry"]);
   const correct = lines.map((line) => line.split(","))
     .filter((row) => accepted.has(row[resultIndex]))
-    .map((row) => Number(row[usdIndex]) * rate);
+    .map((row) => Number(row[cnyIndex]));
   return {
     count: correct.length,
     low: Math.min(...correct),
@@ -152,7 +152,7 @@ async function loadData() {
     vlmRows = vlm.rows;
     renderVlm();
     renderTextRisk(text);
-    renderSnapshot(vlm, text, parseBenchmark(benchmarkCsv, vlm.workload.usd_cny));
+    renderSnapshot(vlm, text, parseBenchmark(benchmarkCsv));
   } catch (error) {
     document.querySelector("#vlm-table-body").innerHTML = `<tr><td colspan="5" class="empty-row">${escapeHtml(error.message)}</td></tr>`;
     document.querySelector("#text-vendor-body").innerHTML = `<tr><td colspan="5" class="empty-row">${escapeHtml(error.message)}</td></tr>`;
