@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "https://openrouter.ai/api/v1/models",
-  "checked_at": "2026-10-23T02:38:02.120Z",
+  "checked_at": "2026-10-24T02:34:56.702Z",
   "workload": {
     "images": 1000,
     "input_tokens_per_image": 1500,
@@ -197,6 +197,22 @@
       ]
     },
     {
+      "id": "moonshotai/kimi-k3",
+      "name": "MoonshotAI: Kimi K3",
+      "created": 1784215858,
+      "input_usd_per_million": 0.239,
+      "output_usd_per_million": 10.8,
+      "usd_per_1000": 2.5185,
+      "cny_per_1000": 16.919283,
+      "lab_status": "已实测·正确",
+      "position": "高能力档",
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ]
+    },
+    {
       "id": "z-ai/glm-5v-turbo",
       "name": "Z.ai: GLM 5V Turbo",
       "created": 1775061458,
@@ -209,22 +225,6 @@
       "input_modalities": [
         "image",
         "text",
-        "video"
-      ]
-    },
-    {
-      "id": "moonshotai/kimi-k3",
-      "name": "MoonshotAI: Kimi K3",
-      "created": 1784215858,
-      "input_usd_per_million": 0.239,
-      "output_usd_per_million": 11.936,
-      "usd_per_1000": 2.7457,
-      "cny_per_1000": 18.4456126,
-      "lab_status": "已实测·正确",
-      "position": "高能力档",
-      "input_modalities": [
-        "text",
-        "image",
         "video"
       ]
     },

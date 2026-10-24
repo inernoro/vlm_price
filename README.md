@@ -50,7 +50,7 @@
 <!-- LIVE_PRICING_START -->
 ## 当前目录预算
 
-> 自动核验：2026-10-23T02:38:02.120Z；来源：[OpenRouter Models API](https://openrouter.ai/api/v1/models)。
+> 自动核验：2026-10-24T02:34:56.702Z；来源：[OpenRouter Models API](https://openrouter.ai/api/v1/models)。
 
 统一预算假设：每张 1500 输入 token、200 输出 token，共 1000 张；$1 = ¥6.7180（[中国外汇交易中心（中国货币网）](https://www.chinamoney.com.cn/chinese/bkccpr/index.html?tab=2) 2026-10-23 中间价）。这是目录预算，不是实验实付。
 
@@ -73,8 +73,8 @@
 | Google: Gemini 3.5 Flash Lite | 0.300 / 2.500 | **6.38** | 已实测·正确 | 历史对照 |
 | ByteDance Seed: Seed 2.1 Turbo | 0.500 / 2.500 | **8.40** | 已实测·正确 | 当前候选 |
 | Google: Gemini 3.7 Flash | 0.750 / 3.750 | **12.60** | 待复测 | 当前候选 |
+| MoonshotAI: Kimi K3 | 0.239 / 10.800 | **16.92** | 已实测·正确 | 高能力档 |
 | Z.ai: GLM 5V Turbo | 1.200 / 4.000 | **17.47** | 已实测·重试正确 | 视觉推理候选 |
-| MoonshotAI: Kimi K3 | 0.239 / 11.936 | **18.45** | 已实测·正确 | 高能力档 |
 | Anthropic: Claude Sonnet 5 | 2.000 / 10.000 | **33.59** | 待复测 | 高能力档 |
 | OpenAI: GPT-5.6 Terra | 2.000 / 12.000 | **36.28** | 待复测 | OpenAI 平衡档 |
 | Anthropic: Claude Opus 5 | 5.000 / 25.000 | **83.97** | 待复测 | 价格上沿 |
