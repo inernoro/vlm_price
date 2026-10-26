@@ -31,7 +31,7 @@
 | 公开基础价样本均值 | **¥1.16** | 8 个有可复算公开基础价的厂商；询价项与阶段性免费额度不参与 |
 | 公开基础价上限 | **¥3.36** | Google Cloud Text Moderation，付费第一档 |
 
-统一试算按 1000 条短文本、每条不超过 100 Unicode 字符、每条单独请求；美元报价采用 [中国外汇交易中心（中国货币网）](https://www.chinamoney.com.cn/chinese/bkccpr/index.html?tab=2) 2026-10-23 USD/CNY 中间价 `$1 = ¥6.7180`。均值用于判断公开目录价量级，不代表效果排名或合同成交价；详细公式和采购边界见[文本内容风险识别报价](docs/06-文本内容风险识别报价.md)。静态公开报价超过 30 天未复核时，仓库校验会失败。
+统一试算按 1000 条短文本、每条不超过 100 Unicode 字符、每条单独请求；美元报价采用 [中国外汇交易中心（中国货币网）](https://www.chinamoney.com.cn/chinese/bkccpr/index.html?tab=2) 2026-10-26 USD/CNY 中间价 `$1 = ¥6.7162`。均值用于判断公开目录价量级，不代表效果排名或合同成交价；详细公式和采购边界见[文本内容风险识别报价](docs/06-文本内容风险识别报价.md)。静态公开报价超过 30 天未复核时，仓库校验会失败。
 <!-- TEXT_RISK_SUMMARY_END -->
 
 本次复核修正了三类容易造成预算偏差的口径：AWS 区分直接检查 API 与通用 Guardrails 内容过滤价；阿里云同时列出标准、增强和大模型文本审核档；华为云采用官方公开参考阶梯价。Google 的长期用量折扣单列，基础价仍按无承诺的首个付费档比较。
@@ -50,34 +50,34 @@
 <!-- LIVE_PRICING_START -->
 ## 当前目录预算
 
-> 自动核验：2026-10-25T02:36:58.678Z；来源：[OpenRouter Models API](https://openrouter.ai/api/v1/models)。
+> 自动核验：2026-10-26T02:42:41.628Z；来源：[OpenRouter Models API](https://openrouter.ai/api/v1/models)。
 
-统一预算假设：每张 1500 输入 token、200 输出 token，共 1000 张；$1 = ¥6.7180（[中国外汇交易中心（中国货币网）](https://www.chinamoney.com.cn/chinese/bkccpr/index.html?tab=2) 2026-10-23 中间价）。这是目录预算，不是实验实付。
+统一预算假设：每张 1500 输入 token、200 输出 token，共 1000 张；$1 = ¥6.7162（[中国外汇交易中心（中国货币网）](https://www.chinamoney.com.cn/chinese/bkccpr/index.html?tab=2) 2026-10-26 中间价）。这是目录预算，不是实验实付。
 
 | 指标 | 数值 | 模型 |
 |---|---:|---|
 | 当前目录下限 | **¥0.48/1000 张** | Qwen: Qwen3.7 Flash |
-| 当前目录上限 | **¥83.97/1000 张** | Anthropic: Claude Opus 5 |
+| 当前目录上限 | **¥83.95/1000 张** | Anthropic: Claude Opus 5 |
 | 目录价差 | **176.1×** | 上限 ÷ 下限 |
 
 | 模型 | 输入/输出（$/1M token） | 目录预算（¥/1000 张） | 实验状态 | 定位 |
 |---|---:|---:|---|---|
 | Qwen: Qwen3.7 Flash | 0.030 / 0.130 | **0.48** | 已实测·重试正确 | 价格下沿 |
-| ByteDance Seed: Seed-2.0-Mini | 0.100 / 0.400 | **1.55** | 待复测 | 低价候选 |
+| ByteDance Seed: Seed-2.0-Mini | 0.100 / 0.400 | **1.54** | 待复测 | 低价候选 |
 | Mistral: Mistral Small 4 | 0.150 / 0.600 | **2.32** | 已实测·误判 | 风险对照 |
 | StepFun: Step 3.7 Flash | 0.200 / 1.150 | **3.56** | 已实测·正确 | 通用候选 |
 | OpenAI: GPT-5.6 Luna | 0.200 / 1.200 | **3.63** | 待复测 | OpenAI 低成本档 |
-| MiniMax: MiniMax M3 | 0.300 / 1.200 | **4.64** | 已实测·正确 | 通用候选 |
-| Meta: Muse Glimmer 30B | 0.300 / 1.200 | **4.64** | 待复测 | 通用候选 |
+| MiniMax: MiniMax M3 | 0.300 / 1.200 | **4.63** | 已实测·正确 | 通用候选 |
+| Meta: Muse Glimmer 30B | 0.300 / 1.200 | **4.63** | 待复测 | 通用候选 |
 | Qwen: Qwen3.7 Plus | 0.320 / 1.280 | **4.94** | 待复测 | 通用候选 |
 | Google: Gemini 3.5 Flash Lite | 0.300 / 2.500 | **6.38** | 已实测·正确 | 历史对照 |
 | ByteDance Seed: Seed 2.1 Turbo | 0.500 / 2.500 | **8.40** | 已实测·正确 | 当前候选 |
-| Google: Gemini 3.7 Flash | 0.750 / 3.750 | **12.60** | 待复测 | 当前候选 |
-| MoonshotAI: Kimi K3 | 0.239 / 10.800 | **16.92** | 已实测·正确 | 高能力档 |
-| Z.ai: GLM 5V Turbo | 1.200 / 4.000 | **17.47** | 已实测·重试正确 | 视觉推理候选 |
-| Anthropic: Claude Sonnet 5 | 2.000 / 10.000 | **33.59** | 待复测 | 高能力档 |
-| OpenAI: GPT-5.6 Terra | 2.000 / 12.000 | **36.28** | 待复测 | OpenAI 平衡档 |
-| Anthropic: Claude Opus 5 | 5.000 / 25.000 | **83.97** | 待复测 | 价格上沿 |
+| Google: Gemini 3.7 Flash | 0.750 / 3.750 | **12.59** | 待复测 | 当前候选 |
+| Z.ai: GLM 5V Turbo | 1.200 / 4.000 | **17.46** | 已实测·重试正确 | 视觉推理候选 |
+| MoonshotAI: Kimi K3 | 0.360 / 11.900 | **19.61** | 已实测·正确 | 高能力档 |
+| Anthropic: Claude Sonnet 5 | 2.000 / 10.000 | **33.58** | 待复测 | 高能力档 |
+| OpenAI: GPT-5.6 Terra | 2.000 / 12.000 | **36.27** | 待复测 | OpenAI 平衡档 |
+| Anthropic: Claude Opus 5 | 5.000 / 25.000 | **83.95** | 待复测 | 价格上沿 |
 
 目录价格最低不等于业务成本最低；`待复测` 模型不参与效果结论。
 <!-- LIVE_PRICING_END -->
