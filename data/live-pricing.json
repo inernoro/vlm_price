@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
   "source": "https://openrouter.ai/api/v1/models",
-  "checked_at": "2026-10-26T02:42:41.628Z",
+  "checked_at": "2026-10-27T02:39:24.221Z",
   "workload": {
     "images": 1000,
     "input_tokens_per_image": 1500,
     "output_tokens_per_image": 200,
-    "usd_cny": 6.7162,
-    "exchange_rate_date": "2026-10-26",
+    "usd_cny": 6.7171,
+    "exchange_rate_date": "2026-10-27",
     "exchange_rate_source": "https://www.chinamoney.com.cn/chinese/bkccpr/index.html?tab=2"
   },
   "floor": {
     "id": "qwen/qwen3.7-flash",
-    "cny_per_1000": 0.4768502
+    "cny_per_1000": 0.4769141
   },
   "ceiling": {
     "id": "anthropic/claude-opus-5",
-    "cny_per_1000": 83.9525
+    "cny_per_1000": 83.96375
   },
   "rows": [
     {
@@ -26,7 +26,7 @@
       "input_usd_per_million": 0.03,
       "output_usd_per_million": 0.13,
       "usd_per_1000": 0.071,
-      "cny_per_1000": 0.4768502,
+      "cny_per_1000": 0.4769141,
       "lab_status": "已实测·重试正确",
       "position": "价格下沿",
       "input_modalities": [
@@ -42,7 +42,7 @@
       "input_usd_per_million": 0.1,
       "output_usd_per_million": 0.4,
       "usd_per_1000": 0.23,
-      "cny_per_1000": 1.544726,
+      "cny_per_1000": 1.544933,
       "lab_status": "待复测",
       "position": "低价候选",
       "input_modalities": [
@@ -58,7 +58,7 @@
       "input_usd_per_million": 0.15,
       "output_usd_per_million": 0.6,
       "usd_per_1000": 0.345,
-      "cny_per_1000": 2.317089,
+      "cny_per_1000": 2.3173995,
       "lab_status": "已实测·误判",
       "position": "风险对照",
       "input_modalities": [
@@ -73,7 +73,7 @@
       "input_usd_per_million": 0.2,
       "output_usd_per_million": 1.15,
       "usd_per_1000": 0.53,
-      "cny_per_1000": 3.559586,
+      "cny_per_1000": 3.560063,
       "lab_status": "已实测·正确",
       "position": "通用候选",
       "input_modalities": [
@@ -89,7 +89,7 @@
       "input_usd_per_million": 0.2,
       "output_usd_per_million": 1.2,
       "usd_per_1000": 0.54,
-      "cny_per_1000": 3.626748,
+      "cny_per_1000": 3.627234,
       "lab_status": "待复测",
       "position": "OpenAI 低成本档",
       "input_modalities": [
@@ -105,7 +105,7 @@
       "input_usd_per_million": 0.3,
       "output_usd_per_million": 1.2,
       "usd_per_1000": 0.69,
-      "cny_per_1000": 4.634178,
+      "cny_per_1000": 4.634799,
       "lab_status": "已实测·正确",
       "position": "通用候选",
       "input_modalities": [
@@ -121,7 +121,7 @@
       "input_usd_per_million": 0.3,
       "output_usd_per_million": 1.2,
       "usd_per_1000": 0.69,
-      "cny_per_1000": 4.634178,
+      "cny_per_1000": 4.634799,
       "lab_status": "待复测",
       "position": "通用候选",
       "input_modalities": [
@@ -136,7 +136,7 @@
       "input_usd_per_million": 0.32,
       "output_usd_per_million": 1.28,
       "usd_per_1000": 0.736,
-      "cny_per_1000": 4.9431232,
+      "cny_per_1000": 4.9437856,
       "lab_status": "待复测",
       "position": "通用候选",
       "input_modalities": [
@@ -151,7 +151,7 @@
       "input_usd_per_million": 0.3,
       "output_usd_per_million": 2.5,
       "usd_per_1000": 0.95,
-      "cny_per_1000": 6.38039,
+      "cny_per_1000": 6.381245,
       "lab_status": "已实测·正确",
       "position": "历史对照",
       "input_modalities": [
@@ -169,7 +169,7 @@
       "input_usd_per_million": 0.5,
       "output_usd_per_million": 2.5,
       "usd_per_1000": 1.25,
-      "cny_per_1000": 8.39525,
+      "cny_per_1000": 8.396375,
       "lab_status": "已实测·正确",
       "position": "当前候选",
       "input_modalities": [
@@ -185,7 +185,7 @@
       "input_usd_per_million": 0.75,
       "output_usd_per_million": 3.75,
       "usd_per_1000": 1.875,
-      "cny_per_1000": 12.592875,
+      "cny_per_1000": 12.5945625,
       "lab_status": "待复测",
       "position": "当前候选",
       "input_modalities": [
@@ -203,7 +203,7 @@
       "input_usd_per_million": 1.2,
       "output_usd_per_million": 4,
       "usd_per_1000": 2.6,
-      "cny_per_1000": 17.46212,
+      "cny_per_1000": 17.46446,
       "lab_status": "已实测·重试正确",
       "position": "视觉推理候选",
       "input_modalities": [
@@ -216,10 +216,10 @@
       "id": "moonshotai/kimi-k3",
       "name": "MoonshotAI: Kimi K3",
       "created": 1784215858,
-      "input_usd_per_million": 0.36,
-      "output_usd_per_million": 11.9,
-      "usd_per_1000": 2.92,
-      "cny_per_1000": 19.611304,
+      "input_usd_per_million": 0.2,
+      "output_usd_per_million": 20,
+      "usd_per_1000": 4.3,
+      "cny_per_1000": 28.88353,
       "lab_status": "已实测·正确",
       "position": "高能力档",
       "input_modalities": [
@@ -235,7 +235,7 @@
       "input_usd_per_million": 2,
       "output_usd_per_million": 10,
       "usd_per_1000": 5,
-      "cny_per_1000": 33.581,
+      "cny_per_1000": 33.5855,
       "lab_status": "待复测",
       "position": "高能力档",
       "input_modalities": [
@@ -251,7 +251,7 @@
       "input_usd_per_million": 2,
       "output_usd_per_million": 12,
       "usd_per_1000": 5.4,
-      "cny_per_1000": 36.26748,
+      "cny_per_1000": 36.27234,
       "lab_status": "待复测",
       "position": "OpenAI 平衡档",
       "input_modalities": [
@@ -267,7 +267,7 @@
       "input_usd_per_million": 5,
       "output_usd_per_million": 25,
       "usd_per_1000": 12.5,
-      "cny_per_1000": 83.9525,
+      "cny_per_1000": 83.96375,
       "lab_status": "待复测",
       "position": "价格上沿",
       "input_modalities": [
