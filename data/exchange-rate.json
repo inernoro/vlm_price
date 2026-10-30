@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "pair": "USD/CNY",
-  "rate": 6.7147,
-  "rate_date": "2026-10-29",
+  "rate": 6.7138,
+  "rate_date": "2026-10-30",
   "rate_type": "CFETS central parity",
   "source_name": "中国外汇交易中心（中国货币网）",
   "source_url": "https://www.chinamoney.com.cn/chinese/bkccpr/index.html?tab=2",
-  "checked_at": "2026-10-29"
+  "checked_at": "2026-10-30"
 }
