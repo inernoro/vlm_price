@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "https://openrouter.ai/api/v1/models",
-  "checked_at": "2026-10-30T02:27:54.871Z",
+  "checked_at": "2026-11-01T02:24:37.229Z",
   "workload": {
     "images": 1000,
     "input_tokens_per_image": 1500,
