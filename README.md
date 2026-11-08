@@ -50,7 +50,7 @@
 <!-- LIVE_PRICING_START -->
 ## 当前目录预算
 
-> 自动核验：2026-11-07T02:23:23.428Z；来源：[OpenRouter Models API](https://openrouter.ai/api/v1/models)。
+> 自动核验：2026-11-08T02:24:20.872Z；来源：[OpenRouter Models API](https://openrouter.ai/api/v1/models)。
 
 统一预算假设：每张 1500 输入 token、200 输出 token，共 1000 张；$1 = ¥6.7168（[中国外汇交易中心（中国货币网）](https://www.chinamoney.com.cn/chinese/bkccpr/index.html?tab=2) 2026-11-06 中间价）。这是目录预算，不是实验实付。
 
